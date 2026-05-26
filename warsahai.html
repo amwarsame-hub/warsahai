@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>warsaAi — AI for Entrepreneurs</title>
 <style>
   :root {
@@ -44,7 +44,7 @@
   body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
@@ -321,7 +321,7 @@
 
   .hero-bg {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background:
       radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232,160,69,0.12) 0%, transparent 60%),
       radial-gradient(ellipse 40% 40% at 80% 80%, rgba(155,107,255,0.08) 0%, transparent 50%),
@@ -330,7 +330,7 @@
 
   .hero-grid {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background-image:
       linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
@@ -750,14 +750,17 @@
 
   .meet-photo-frame img {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
     object-position: center top;
     filter: saturate(0.95);
-    -webkit-transform: translateZ(0); /* force GPU layer on iOS */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
 
@@ -974,7 +977,7 @@
   .ai-orb::after {
     content: 'AI';
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2514,7 +2517,33 @@
     .wf-sched-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 520px) { .wf-sched-grid { grid-template-columns: 1fr; } }
-</style>
+
+  /* ─── ENHANCED MOBILE (<=600px) ─── */
+  @media (max-width: 600px) {
+    #home { padding: 5.5rem 1.25rem 3rem; }
+    h1 { font-size: clamp(2rem, 9vw, 3rem); }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-badge { font-size: 0.7rem; padding: 0.35rem 0.85rem; }
+    .hero-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+    .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+    .hero-stats { gap: 1.25rem; margin-top: 2.5rem; }
+    section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .about-visual { height: 200px; }
+    .meet-photo-frame { height: 320px; }
+    .uc-industry-grid { grid-template-columns: 1fr; }
+    .craft-grid { grid-template-columns: 1fr !important; }
+    .tips-masonry { columns: 1 !important; }
+    .session-table { font-size: 0.75rem; }
+    .session-table th, .session-table td { padding: 0.6rem 0.4rem; }
+  }
+
+  /* ─── VERY SMALL (<=400px) ─── */
+  @media (max-width: 400px) {
+    h1 { font-size: clamp(1.75rem, 9vw, 2.5rem); }
+    .hero-stats { flex-direction: column; align-items: center; gap: 1rem; }
+    .meet-photo-frame { height: 260px; }
+  }
+  </style>
 </head>
 <body>
 
