@@ -1,0 +1,24 @@
+# Claude Code internals
+.claude/
+
+# Personal documents
+*.docx
+*.pptx
+*.odp
+*.msg
+Ahmed Warsame CV to Use/
+
+# Books & unrelated work
+Claude AI Books/
+Claude Work/
+
+# Images (ahmed-photo.png is embedded as base64 in the HTML)
+*.png
+*.jpg
+*.JPG
+
+# Screenshots
+Screenshot*.png
+
+# Unrelated tools
+mode_photo_flashcards (1).html

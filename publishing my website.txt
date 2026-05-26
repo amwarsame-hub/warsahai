@@ -1,0 +1,44 @@
+publishing my website
+
+Option 1 — Netlify (Recommended, 2 minutes)
+Step 1 — Instant publish (no signup needed):
+
+Go to netlify.com/drop
+Drag your warsahai.html file onto the page
+You get a live URL instantly (e.g. random-name.netlify.app)
+Step 2 — Connect your domain (warsahai.co.uk):
+
+Create a free Netlify account
+Go to Site Settings → Domain Management → Add custom domain
+Type warsahai.co.uk
+Netlify gives you DNS records to add at your domain registrar (e.g. 123-reg, GoDaddy, Namecheap)
+Add those records — live within minutes to a few hours
+Option 2 — GitHub Pages (Free, slightly more technical)
+Create a free GitHub account
+New repository → name it warsahai
+Upload warsahai.html, rename it index.html
+Go to Settings → Pages → Deploy from main branch
+Connect warsahai.co.uk via the Custom Domain field
+You'll need to own the domain first
+If you don't already own warsahai.co.uk, register it at:
+
+123-reg.co.uk — popular UK registrar, ~£10/year for .co.uk
+Namecheap.com — often cheaper
+GoDaddy.com
+Recommendation
+Netlify Drop → drag the file → done in 2 minutes, then connect your .co.uk domain. It's free, handles HTTPS automatically, and you can redeploy by simply dragging an updated file.
+
+Also — rename your file from warsahai.html to index.html before uploading so the root URL loads it directly.
+
+
+Main page left vertical list as shown  
+About.Meet Ahmed,prompt exchange, Prompt of the day
+curriculum
+workflows
+use cases 
+PRACTICAL TIPS
+sessions 
+
+on the top end should show AI machine photo or logo 
+
+

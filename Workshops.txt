@@ -1,0 +1,18 @@
+Exam Results & Training Recommendations
+Based on the exam performance, here are the specific areas requiring improvement and the corresponding workshops designed to bridge those gaps.
+
+recommend them to take a workshop from the list, example if they failed floorplan, recommend floorplan workshop
+Classes are available every Saturday add one button to signup, the buton should generate a draft email using "C:\Users\ahmed\OneDrive\AI training\Programs\I would like to join the workshop taking place [Insert Date Here].msg"
+
+
+
+Identified Failure AreaRecommended WorkshopInterior Lighting & StagingInternal PhotographyLandscape & Curb AppealExternal PhotographyBusiness & Industrial SpacesCommercial PhotographyHigh-End Video ProductionCinematic VideographyProperty Tours & FlowWalkthrough VideographyAerial Capture & RegulationsDroneEnergy Performance AssessmentsEPC’sSpatial Mapping & AccuracyFloorplansContent Creation & CuttingFilm & Edit a VlogEngagement & PostingSocial MediaFile Management & Quality ControlAdmin & UploadSupplemental Professional DevelopmentWe also offer free workshops to enhance your personal brand and client interaction:Estate Agent Video PresentationSetting Up Your Social MediaFilming and Editing with your iPhone
+
+Saturday Workshop Registration
+All classes are held every Saturday. To secure your spot, please use the button below to generate your registration email.
+
+Sign Up for Workshop
+
+Reminder: Please ensure you have reviewed your specific exam feedback notes before attending the session so you can focus on the technical adjustments needed.
+
+Which specific photographer or failed module should we prioritize for the upcoming Saturday session?
