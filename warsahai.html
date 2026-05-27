@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>warsaAi — AI for Entrepreneurs</title>
 <style>
   :root {
@@ -44,7 +44,7 @@
   body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
@@ -321,7 +321,7 @@
 
   .hero-bg {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background:
       radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232,160,69,0.12) 0%, transparent 60%),
       radial-gradient(ellipse 40% 40% at 80% 80%, rgba(155,107,255,0.08) 0%, transparent 50%),
@@ -330,7 +330,7 @@
 
   .hero-grid {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     background-image:
       linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
@@ -746,18 +746,18 @@
     border: 1px solid var(--border);
     box-shadow: 0 40px 80px rgba(0,0,0,0.5);
     height: 480px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .meet-photo-frame img {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    -webkit-object-fit: cover;
     object-position: center top;
-    filter: saturate(0.95);
-    -webkit-transform: translateZ(0); /* force GPU layer on iOS */
   }
 
 
@@ -974,7 +974,7 @@
   .ai-orb::after {
     content: 'AI';
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2363,6 +2363,10 @@
     padding: 2rem 2.5rem; background: var(--card);
     border: 1px solid var(--border); border-radius: 16px;
     overflow-x: auto;
+    width: auto; height: auto;
+    flex-shrink: 1;
+    animation: none;
+    box-shadow: none;
   }
   .wf-hub-side { display: flex; flex-direction: column; gap: 0.65rem; flex-shrink: 0; }
   .wf-hp {
@@ -2370,7 +2374,8 @@
     color: var(--hpc, #ccc); background: rgba(0,0,0,0.35);
     border-radius: 100px; padding: 0.45rem 1.1rem;
     font-size: 0.8rem; font-weight: 700; white-space: nowrap;
-    cursor: pointer; appearance: none; font-family: inherit;
+    cursor: pointer;
+    min-height: 44px; appearance: none; font-family: inherit;
     transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   }
   .wf-hp:hover { background: rgba(255,255,255,0.07) !important; transform: scale(1.05); }
@@ -2473,6 +2478,7 @@
     white-space: nowrap;
   }
   .wf-conn-item:hover { border-color: var(--accent); background: rgba(232,160,69,0.06); }
+  a.wf-conn-item { text-decoration: none; cursor: pointer; }
   .wf-conn-item.sn-highlight {
     border-color: rgba(232,160,69,0.4); color: var(--accent);
     background: rgba(232,160,69,0.07);
@@ -2506,15 +2512,84 @@
   .wf-sched-desc { font-size: 0.72rem; color: var(--grey); line-height: 1.4; }
 
   @media (max-width: 900px) {
-    .wf-hub { flex-direction: column; padding: 1.5rem; }
-    .wf-hub-arm { width: 2px; height: 20px; min-width: 0; flex: none;
-      background: linear-gradient(to bottom, rgba(232,160,69,0.3), rgba(232,160,69,0.9), rgba(232,160,69,0.3)); }
-    .wf-hub-arm::after { display: none; }
-    .wf-hub-side { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .wf-hub {
+      flex-direction: column !important;
+      padding: 1.25rem 1rem !important;
+      gap: 1rem !important;
+      width: 100% !important;
+      height: auto !important;
+      min-width: 0 !important;
+      overflow-x: visible !important;
+      animation: none !important;
+      box-sizing: border-box !important;
+    }
+    .wf-hub-arm { display: none !important; }
+    .wf-hub-core {
+      width: 100% !important;
+      height: auto !important;
+      padding: 1.25rem 1rem !important;
+      border-radius: 12px !important;
+      box-sizing: border-box;
+    }
+    .wf-hub-title { font-size: 1.5rem; }
+    .wf-hub-count { font-size: 0.75rem; }
+    .wf-hub-side {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .wf-hp {
+      padding: 0.55rem 1rem;
+      font-size: 0.85rem;
+      min-height: 44px;
+      flex: 1 1 auto;
+      text-align: center;
+      max-width: 160px;
+    }
+    .wf-dept-panel.open { max-height: 900px; }
     .wf-sched-grid { grid-template-columns: repeat(2, 1fr); }
+    .wf-conn-strip { flex-wrap: wrap; gap: 0.5rem; }
+    .wf-conn-item { flex: 1 1 calc(50% - 0.5rem); justify-content: center; }
+    .wf-conn-arrow { display: none; }
   }
-  @media (max-width: 520px) { .wf-sched-grid { grid-template-columns: 1fr; } }
-</style>
+  @media (max-width: 520px) {
+    .wf-sched-grid { grid-template-columns: 1fr; }
+    .wf-hp { max-width: 140px; font-size: 0.8rem; }
+    .wf-conn-item { flex: 1 1 100%; }
+  }
+
+  /* ─── ENHANCED MOBILE (<=600px) ─── */
+  @media (max-width: 600px) {
+    #home { padding: 5.5rem 1.25rem 3rem; }
+    h1 { font-size: clamp(2rem, 9vw, 3rem); }
+    .hero-sub { font-size: 0.95rem; }
+    .hero-badge { font-size: 0.7rem; padding: 0.35rem 0.85rem; }
+    .hero-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+    .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+    .hero-stats { gap: 1.25rem; margin-top: 2.5rem; }
+    section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .wf-hub-wrap { margin-bottom: 2rem; }
+    .wf-conn-strip { flex-wrap: wrap; justify-content: center; }
+    .wf-conn-arrow { display: none; }
+    .wf-conn-item { flex: 1 1 40%; text-align: center; }
+    .about-visual { height: 200px; }
+    .meet-photo-frame { height: 320px; }
+    .uc-industry-grid { grid-template-columns: 1fr; }
+    .craft-grid { grid-template-columns: 1fr !important; }
+    .tips-masonry { columns: 1 !important; }
+    .session-table { font-size: 0.75rem; }
+    .session-table th, .session-table td { padding: 0.6rem 0.4rem; }
+  }
+
+  /* ─── VERY SMALL (<=400px) ─── */
+  @media (max-width: 400px) {
+    h1 { font-size: clamp(1.75rem, 9vw, 2.5rem); }
+    .hero-stats { flex-direction: column; align-items: center; gap: 1rem; }
+    .meet-photo-frame { height: 260px; }
+  }
+  </style>
 </head>
 <body>
 
@@ -2655,7 +2730,8 @@
     <li class="sb-divider">More</li>
 
     
-    <li><a href="#sessions" class="sb-link" data-section="sessions" onclick="closeSidebar()">
+    <li><a href="#workflows" class="sb-link" data-section="workflows" onclick="closeSidebar()">Workflows</a></li>
+        <li><a href="#sessions" class="sb-link" data-section="sessions" onclick="closeSidebar()">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
       Sessions
     </a></li>
@@ -2665,9 +2741,9 @@
   <!-- CTA -->
   <div class="sb-bottom">
     <a href="#register" class="sb-cta" onclick="closeSidebar()">&#8599; Join Class</a>
-    <a href="mailto:am.warsame@googlemail.com?subject=AI%20Services%20Inquiry&body=Hi%20Ahmed%2C%0A%0AI%27d%20like%20to%20inquire%20about%20your%20AI%20services." class="sb-cta-inquiry" onclick="closeSidebar()">&#9993; Inquiry AI Services</a>
+    <a href="mailto:ahmed@warsaai.com?subject=AI%20Services%20Inquiry&body=Hi%20Ahmed%2C%0A%0AI%27d%20like%20to%20inquire%20about%20your%20AI%20services." class="sb-cta-inquiry" onclick="closeSidebar()">&#9993; Inquiry AI Services</a>
     <div class="sb-social">
-      <a href="https://www.instagram.com/warsaa_ai/" target="_blank" rel="noopener" class="sb-social-btn" title="Follow on Instagram">
+      <a href="https://www.instagram.com/warsaa.ai/" target="_blank" rel="noopener" class="sb-social-btn" title="Follow on Instagram">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="ig-grad-sb" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad-sb)" stroke-width="2" fill="none"/>
@@ -2797,9 +2873,9 @@
       </div>
 
       <div class="meet-contact-chips">
-        <a href="mailto:am.warsame@gmail.com" class="meet-chip" style="word-break:break-all">
+        <a href="mailto:ahmed@warsaai.com" class="meet-chip" style="word-break:break-all">
           <div class="meet-chip-icon">✉️</div>
-          am.warsame@gmail.com
+          ahmed@warsaai.com
         </a>
         <a href="tel:+447450209184" class="meet-chip">
           <div class="meet-chip-icon">📞</div>
@@ -2809,7 +2885,7 @@
           <div class="meet-chip-icon">📍</div>
           London, UK
         </div>
-        <a href="https://www.instagram.com/warsaa_ai/" target="_blank" rel="noopener" class="meet-chip" style="border-color:rgba(225,48,108,0.3)">
+        <a href="https://www.instagram.com/warsaa.ai/" target="_blank" rel="noopener" class="meet-chip" style="border-color:rgba(225,48,108,0.3)">
           <div class="meet-chip-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:7px;display:flex;align-items:center;justify-content:center;width:28px;height:28px">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="white" stroke-width="2" fill="none"/>
@@ -2836,131 +2912,6 @@
           Now applying that same operational rigour to AI — certified across six tools in 2026 and
           building this community to share what actually works.
         </p>
-      </div>
-
-      <!-- Work Experience -->
-      <div class="section-label" style="margin-bottom:0.75rem">Work Experience</div>
-      <div class="exp-list">
-
-        <!-- Goldman Sachs -->
-        <div class="exp-card">
-          <div class="exp-header" onclick="toggleExp(this)">
-            <div class="exp-logo gs">GS</div>
-            <div class="exp-info">
-              <div class="exp-company">Goldman Sachs International</div>
-              <div class="exp-role">E-Business Services · Client Services · Desktop Support</div>
-              <div class="exp-dates">Jan 2006 – May 2017</div>
-            </div>
-            <span class="exp-chevron">▾</span>
-          </div>
-          <div class="exp-body">
-            <div class="exp-body-inner">
-              <div class="exp-pos">
-                <div class="exp-pos-title">E-Business Services / Client Services</div>
-                <div class="exp-pos-dates">Dec 2007 – May 2017</div>
-                <ul class="exp-bullets">
-                  <li>End-to-end client onboarding for electronic trading across FX, Fixed Income, Equities and Rates — managing platform access, counterparty agreements and technical connectivity</li>
-                  <li>Led SEF onboarding integration in response to Dodd-Frank regulation, coordinating across legal, compliance and technology teams</li>
-                  <li>Managed change projects, documented workflow solutions, and provided second-level IT and application support to trading desk clients globally</li>
-                  <li>Deep experience with market data applications, Java-based eTrading platforms and the full user account lifecycle</li>
-                  <li>Bridge between internal technology/operations teams and external counterparties on complex onboarding and connectivity issues</li>
-                </ul>
-              </div>
-              <div class="exp-pos">
-                <div class="exp-pos-title">1st / 2nd Line Desktop Support</div>
-                <div class="exp-pos-dates">Jan 2006 – Nov 2007</div>
-                <ul class="exp-bullets">
-                  <li>Hardware and software support across the trading floor via desk visits, email and phone</li>
-                  <li>Built a strong foundation in financial services IT culture and trading floor operations</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- BNP Paribas -->
-        <div class="exp-card">
-          <div class="exp-header" onclick="toggleExp(this)">
-            <div class="exp-logo bnp">BNP</div>
-            <div class="exp-info">
-              <div class="exp-company">BNP Paribas</div>
-              <div class="exp-role">EMMC Client Services Manager</div>
-              <div class="exp-dates">May 2017 – Apr 2020</div>
-            </div>
-            <span class="exp-chevron">▾</span>
-          </div>
-          <div class="exp-body">
-            <div class="exp-body-inner">
-              <ul class="exp-bullets">
-                <li>Managed global ECS enablement and business support for the electronic markets business, aligning team goals with wider commercial strategy</li>
-                <li>Owned client onboarding across Fixed Income, Rates, FX and Equities — streamlining workflows, cutting onboarding cycle times, and ensuring MiFID regulatory compliance</li>
-                <li>Led the Lisbon client services team, tracked KPIs, and drove stronger engagement with sales and trading desks across EMEA</li>
-                <li>Managed vendor relationships and collaborated with product teams on e-commerce platform improvements</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rothesay -->
-        <div class="exp-card" style="--exp-accent:#0D5C55">
-          <div class="exp-header" onclick="toggleExp(this)">
-            <div class="exp-logo rot" style="font-size:0.62rem;letter-spacing:0.04em;padding:0 4px">
-              <svg viewBox="0 0 36 40" width="30" height="34" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:auto">
-                <!-- Pinecone silhouette in Rothesay teal/white -->
-                <ellipse cx="18" cy="10" rx="5" ry="7" fill="rgba(255,255,255,0.9)"/>
-                <ellipse cx="11" cy="18" rx="5" ry="6" fill="rgba(255,255,255,0.75)"/>
-                <ellipse cx="25" cy="18" rx="5" ry="6" fill="rgba(255,255,255,0.75)"/>
-                <ellipse cx="18" cy="26" rx="6" ry="7" fill="rgba(255,255,255,0.85)"/>
-                <ellipse cx="8"  cy="26" rx="4" ry="5" fill="rgba(255,255,255,0.6)"/>
-                <ellipse cx="28" cy="26" rx="4" ry="5" fill="rgba(255,255,255,0.6)"/>
-                <rect x="16" y="33" width="4" height="6" rx="2" fill="rgba(255,255,255,0.7)"/>
-              </svg>
-            </div>
-            <div class="exp-info">
-              <div class="exp-company" style="color:#4DC9BF">Rothesay</div>
-              <div class="exp-role">Level 2 Technology Support Teams Manager</div>
-              <div class="exp-dates">Apr 2020 – Dec 2025</div>
-            </div>
-            <span class="exp-chevron">▾</span>
-          </div>
-          <div class="exp-body">
-            <div class="exp-body-inner">
-              <!-- Company description -->
-              <div style="
-                margin-bottom:1.25rem;
-                padding:1rem 1.25rem;
-                background:linear-gradient(135deg,rgba(13,92,85,0.18),rgba(8,61,56,0.1));
-                border-left:3px solid #0D5C55;
-                border-radius:0 8px 8px 0;
-              ">
-                <div style="font-size:0.72rem;font-weight:700;color:#4DC9BF;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem">About Rothesay</div>
-                <p style="font-size:0.83rem;color:var(--grey);line-height:1.6;margin:0">
-                  The UK's largest pensions insurance specialist — purpose-built to protect pension schemes and secure the retirement outcomes of nearly <strong style="color:var(--white)">1 million people</strong>. Rothesay manages over <strong style="color:var(--white)">£73 billion</strong> in assets and pays an average of <strong style="color:var(--white)">£360 million</strong> per month in pension obligations, operating with rigorous real-time risk management and full FCA authorisation.
-                </p>
-                <div style="display:flex;gap:1.5rem;margin-top:0.75rem;flex-wrap:wrap">
-                  <span style="font-size:0.75rem;color:#4DC9BF;font-weight:700">£73bn+ AUM</span>
-                  <span style="font-size:0.75rem;color:var(--grey)">·</span>
-                  <span style="font-size:0.75rem;color:#4DC9BF;font-weight:700">~1M Pensions Secured</span>
-                  <span style="font-size:0.75rem;color:var(--grey)">·</span>
-                  <span style="font-size:0.75rem;color:#4DC9BF;font-weight:700">£5.2bn New Business (2025)</span>
-                  <span style="font-size:0.75rem;color:var(--grey)">·</span>
-                  <span style="font-size:0.75rem;color:#4DC9BF;font-weight:700">PASA Accredited #1</span>
-                </div>
-              </div>
-              <ul class="exp-bullets">
-                <li>Built the L2 support function from the ground up — recruited 7 mid- and senior-level engineers and mentored 4 apprentices from early career to full productivity</li>
-                <li>Led global L2 infrastructure operations covering M365, SFTP, networking, data security and identity services; primary escalation point for all major incidents</li>
-                <li>Restructured team by introducing a dedicated L1 manager, freeing L2 engineers to focus on the GS Separation programme and strategic infrastructure projects</li>
-                <li>Delivered consistent year-on-year gains in resolution times and client satisfaction scores</li>
-                <li>Led end-to-end migration from legacy on-premises MFT to cloud-based Axway SecureTransport with zero disruption to business-critical data exchanges during cutover</li>
-                <li>Coordinated phased hybrid cloud approach — allowing clients to transition in stages rather than a single disruptive lift-and-shift</li>
-                <li>Ensured PCI DSS compliance across all migrated file transfer flows within the new Axway cloud environment</li>
-                <li>Managed firm-wide Windows 10 → 11 migration, Skype for Business → Microsoft Teams transition, and Office 2016 → M365 rollout</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <!-- SKILLS — full LinkedIn list organised by category -->
@@ -3709,15 +3660,15 @@
   <div class="wf-connectors-wrap">
     <div class="wf-conn-label">Connected Platforms</div>
     <div class="wf-conn-strip">
-      <div class="wf-conn-item">☁️ Salesforce</div>
+      <a href="https://www.salesforce.com" target="_blank" rel="noopener" class="wf-conn-item">☁️ Salesforce</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">📋 Monday.com</div>
+      <a href="https://monday.com" target="_blank" rel="noopener" class="wf-conn-item">📋 Monday.com</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">🔵 Jira</div>
+      <a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener" class="wf-conn-item">🔵 Jira</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">📘 Confluence</div>
+      <a href="https://www.atlassian.com/software/confluence" target="_blank" rel="noopener" class="wf-conn-item">📘 Confluence</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item sn-highlight">🤖 ServiceNow AI Agents</div>
+      <a href="https://www.servicenow.com/products/ai-agents.html" target="_blank" rel="noopener" class="wf-conn-item sn-highlight">🤖 ServiceNow AI Agents</a>
     </div>
     <div class="wf-sn-callout">
       <div class="wf-sn-icon">🤖</div>
@@ -4725,7 +4676,7 @@
   </div>
 
   <!-- Dashboard window mockup -->
-  <div class="dash-window">
+  <div class="dash-window" id="dashWindow">
 
     <!-- Browser chrome -->
     <div class="dash-chrome">
@@ -4739,21 +4690,21 @@
 
       <!-- Sidebar icons -->
       <div class="dash-sidebar">
-        <div class="dash-sb-item active">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E8A045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div class="dash-sb-item" style="margin-top:auto">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-        </div>
+        <button class="dash-sb-item active" onclick="switchDashView('overview',this)" title="Business Overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('analytics',this)" title="Revenue Analytics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('crm',this)" title="Client CRM">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('email',this)" title="Email Campaigns">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('settings',this)" title="Automations" style="margin-top:auto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </button>
       </div>
 
       <!-- Main content -->
@@ -5166,7 +5117,56 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// Revenue data sets
+// ── View data for each sidebar icon ──
+const DASH_VIEWS = {
+  overview: {
+    title: 'Business Overview',
+    kpis: [
+      { id:'kpi-contacts', label:'Contacts',   val:1847,  prefix:'',  suffix:'',  delta:'▲ 12% vs prev period', up:true  },
+      { id:'kpi-leads',    label:'New Leads',  val:243,   prefix:'',  suffix:'',  delta:'▲ 24% vs prev period', up:true  },
+      { id:'kpi-pipeline', label:'Pipeline',   val:84200, prefix:'£', suffix:'',  delta:'▲ 8% vs prev period',  up:true, fmt:'k' },
+      { id:'kpi-revenue',  label:'Revenue',    val:32400, prefix:'£', suffix:'',  delta:'▲ 31% vs prev period', up:true  }
+    ]
+  },
+  analytics: {
+    title: 'Revenue Analytics',
+    kpis: [
+      { id:'kpi-contacts', label:'Total Revenue',  val:96200, prefix:'£', suffix:'',  delta:'▲ 31% YTD',       up:true  },
+      { id:'kpi-leads',    label:'Avg Deal Size',  val:2840,  prefix:'£', suffix:'',  delta:'▲ 18% vs Q3',     up:true  },
+      { id:'kpi-pipeline', label:'Win Rate',       val:68,    prefix:'',  suffix:'%', delta:'▲ 5% vs prev',    up:true  },
+      { id:'kpi-revenue',  label:'Churn Rate',     val:2.1,   prefix:'',  suffix:'%', delta:'▼ 0.4% improved', up:false }
+    ]
+  },
+  crm: {
+    title: 'Client CRM',
+    kpis: [
+      { id:'kpi-contacts', label:'Total Contacts', val:1847, prefix:'',  suffix:'', delta:'▲ 89 this month',   up:true  },
+      { id:'kpi-leads',    label:'Active Clients', val:312,  prefix:'',  suffix:'', delta:'▲ 14% vs prev',     up:true  },
+      { id:'kpi-pipeline', label:'Follow-ups Due', val:47,   prefix:'',  suffix:'', delta:'▼ 12 vs last week', up:false },
+      { id:'kpi-revenue',  label:'Proposals Out',  val:23,   prefix:'',  suffix:'', delta:'▲ 8 new',           up:true  }
+    ]
+  },
+  email: {
+    title: 'Email Campaigns',
+    kpis: [
+      { id:'kpi-contacts', label:'Emails Sent',  val:1240, prefix:'',  suffix:'',  delta:'▲ 22% this month', up:true },
+      { id:'kpi-leads',    label:'Open Rate',    val:41,   prefix:'',  suffix:'%', delta:'▲ 8% vs prev',     up:true },
+      { id:'kpi-pipeline', label:'Click Rate',   val:8.3,  prefix:'',  suffix:'%', delta:'▲ 2.1% vs prev',   up:true },
+      { id:'kpi-revenue',  label:'Conversions',  val:94,   prefix:'',  suffix:'',  delta:'▲ 37% this month', up:true }
+    ]
+  },
+  settings: {
+    title: 'Automations',
+    kpis: [
+      { id:'kpi-contacts', label:'Active Bots',   val:12,  prefix:'',  suffix:'',  delta:'▲ 3 added',         up:true  },
+      { id:'kpi-leads',    label:'Tasks Run',     val:8420, prefix:'', suffix:'',  delta:'▲ 1.2k this week',  up:true  },
+      { id:'kpi-pipeline', label:'Time Saved',    val:94,  prefix:'',  suffix:'h', delta:'▲ 22h vs prev',     up:true  },
+      { id:'kpi-revenue',  label:'Error Rate',    val:0.3, prefix:'',  suffix:'%', delta:'▼ 0.1% improved',   up:false }
+    ]
+  }
+};
+
+// Revenue chart data sets
 const CHART_DATA = {
   '90d': {
     current: [18,22,19,31,28,25,34,30,38,35,42,39,48,45,52,49,58,55,62,59,68,72,65,70,75,78,72,80,85,82],
@@ -5203,41 +5203,76 @@ function drawChart(period) {
     const y = H - (v / maxVal) * (H - 20);
     return [x, y];
   });
-
-  const toPath = (points) => points.map((p, i) => (i === 0 ? `M${p[0]},${p[1]}` : `L${p[0]},${p[1]}`)).join(' ');
-  const toArea = (points) => toPath(points) + ` L${points[points.length-1][0]},${H} L${points[0][0]},${H} Z`;
-
+  const toPath = (points) => points.map((p, i) => (i === 0 ? 'M'+p[0]+','+p[1] : 'L'+p[0]+','+p[1])).join(' ');
+  const toArea = (points) => toPath(points) + ' L'+points[points.length-1][0]+','+H+' L'+points[0][0]+','+H+' Z';
   const cp = pts(cur), pp = pts(pri);
-
   document.getElementById('chartLine').setAttribute('d', toPath(cp));
   document.getElementById('chartArea').setAttribute('d', toArea(cp));
   document.getElementById('chartPrior').setAttribute('d', toArea(pp));
 }
 
-// Count-up
-function countUp(id, target, prefix, suffix, duration) {
+// Count-up animation
+function countUp(id, target, prefix, suffix, duration, fmt) {
   const el = document.getElementById(id);
   if (!el) return;
   const start = performance.now();
   function step(now) {
     const t = Math.min((now - start) / duration, 1);
     const ease = 1 - Math.pow(1 - t, 3);
-    const val = Math.round(ease * target);
-    el.textContent = prefix + val.toLocaleString() + suffix;
+    const val = ease * target;
+    let display;
+    if (fmt === 'k') display = prefix + (val >= 1000 ? Math.round(val/1000) + 'k' : Math.round(val)) + suffix;
+    else if (Number.isInteger(target)) display = prefix + Math.round(val).toLocaleString() + suffix;
+    else display = prefix + val.toFixed(1) + suffix;
+    el.textContent = display;
     if (t < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
 
+// KPI label update
+function updateKpiLabels(kpis) {
+  kpis.forEach(k => {
+    const kpiEl = document.getElementById(k.id);
+    if (!kpiEl) return;
+    const card = kpiEl.closest('.dash-kpi');
+    if (!card) return;
+    const lbl = card.querySelector('.dash-kpi-label');
+    const delta = card.querySelector('.dash-kpi-delta');
+    if (lbl) lbl.textContent = k.label;
+    if (delta) {
+      delta.textContent = k.delta;
+      delta.className = 'dash-kpi-delta ' + (k.up ? 'up' : 'down');
+    }
+    countUp(k.id, k.val, k.prefix, k.suffix, 900 + Math.random()*400, k.fmt);
+  });
+}
+
+// Switch dashboard view on sidebar icon click
+function switchDashView(viewName, btn) {
+  document.querySelectorAll('.dash-sb-item').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const view = DASH_VIEWS[viewName] || DASH_VIEWS.overview;
+  // Update title
+  const titleEl = document.querySelector('.dash-toolbar-title');
+  if (titleEl) titleEl.textContent = view.title;
+  // Animate KPIs
+  updateKpiLabels(view.kpis);
+  // Redraw chart for analytics-type views
+  drawChart(currentPeriod);
+}
+
 // Transactions
 const TRANSACTIONS = [
-  { name:'Ahmed S.',     amount:'£1,200', status:'paid', icon:'✓' },
-  { name:'Sarah M.',     amount:'£850',   status:'paid', icon:'✓' },
-  { name:'James O.',     amount:'£2,400', status:'pend', icon:'◷' },
-  { name:'Priya K.',     amount:'£560',   status:'paid', icon:'✓' },
-  { name:'Tom W.',       amount:'£3,100', status:'paid', icon:'✓' },
-  { name:'Fatima A.',    amount:'£720',   status:'fail', icon:'✕' },
-  { name:'Chris L.',     amount:'£1,800', status:'pend', icon:'◷' },
+  { name:'Ahmed S.',   amount:'£1,200', status:'paid', icon:'✓' },
+  { name:'Sarah M.',   amount:'£850',   status:'paid', icon:'✓' },
+  { name:'James O.',   amount:'£2,400', status:'pend', icon:'◷' },
+  { name:'Priya K.',   amount:'£560',   status:'paid', icon:'✓' },
+  { name:'Tom W.',     amount:'£3,100', status:'paid', icon:'✓' },
+  { name:'Fatima A.',  amount:'£720',   status:'fail', icon:'✕' },
+  { name:'Chris L.',   amount:'£1,800', status:'pend', icon:'◷' },
+  { name:'Diana R.',   amount:'£4,250', status:'paid', icon:'✓' },
+  { name:'Marcus B.',  amount:'£980',   status:'paid', icon:'✓' },
 ];
 
 function renderTransactions() {
@@ -5248,11 +5283,11 @@ function renderTransactions() {
       <div class="txn-icon ${t.status}">${t.icon}</div>
       <div class="txn-name">${t.name}</div>
       <div class="txn-amt">${t.amount}</div>
-      <div class="txn-status ${t.status}" style="font-size:0.65rem;font-weight:700">${t.status === 'paid' ? 'Paid' : t.status === 'pend' ? 'Pending' : 'Failed'}</div>
+      <div class="txn-status ${t.status}" style="font-size:0.65rem;font-weight:700">${t.status==='paid'?'Paid':t.status==='pend'?'Pending':'Failed'}</div>
     </div>`).join('');
 }
 
-// Funnel bars animate
+// Funnel bars
 function animateFunnel() {
   document.querySelectorAll('.funnel-bar-fill').forEach(bar => {
     const pct = bar.dataset.pct;
@@ -5260,46 +5295,27 @@ function animateFunnel() {
   });
 }
 
-// Pipeline k-format count-up
-function countUpPipeline() {
-  const el = document.getElementById('kpi-pipeline');
-  if (!el) return;
-  const dur = 1400, target = 84200;
-  const start = performance.now();
-  (function step(now) {
-    const t = Math.min((now - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    const val = Math.round(ease * target);
-    el.textContent = '£' + (val >= 1000 ? Math.round(val/1000) + 'k' : val);
-    if (t < 1) requestAnimationFrame(step);
-  })(performance.now());
-}
-
-// IntersectionObserver triggers all animations when dashboard enters view
+// IntersectionObserver — watch the dash-window, not the old #dashboard section
 let dashAnimated = false;
 const dashObs = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting && !dashAnimated) {
     dashAnimated = true;
     drawChart(currentPeriod);
-    countUp('kpi-contacts', 1847,  '',  '',   1200);
-    countUp('kpi-leads',    243,   '',  '',   1000);
-    countUp('kpi-revenue',  32400, '£', '',   1600);
-    countUpPipeline();
-    countUp('ce-posts', 94,  '', '', 900);
-    countUp('ce-emails', 1240, '', '', 1000);
+    // Animate default overview KPIs
+    updateKpiLabels(DASH_VIEWS.overview.kpis);
     setTimeout(() => {
       document.getElementById('ce-opens').textContent = '41%';
       document.getElementById('ce-clicks').textContent = '8.3%';
     }, 1100);
+    countUp('ce-posts', 94, '', '', 900);
+    countUp('ce-emails', 1240, '', '', 1000);
     renderTransactions();
     animateFunnel();
   }
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
-const dashSection = document.getElementById('dashboard');
-if (dashSection) dashObs.observe(dashSection);
-
-
+const dashWin = document.getElementById('dashWindow');
+if (dashWin) dashObs.observe(dashWin);
 /* ── USE CASES SECTOR SWITCH ── */
 function switchSector(panelId, btn) {
   document.querySelectorAll('#ucSectors .uc-sector-btn').forEach(b => b.classList.remove('active'));
@@ -5334,13 +5350,13 @@ function registerClick() {
   }
   const subject = encodeURIComponent('WarsaAi — Workshop Registration');
   const body = encodeURIComponent(`Hi,\n\nI would like to register for the next available WarsaAi Saturday session.\n\nEmail: ${email}\n\nPlease send me the registration details.\n\nThank you.`);
-  window.location.href = `mailto:am.warsame@googlemail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:ahmed@warsaai.com?subject=${subject}&body=${body}`;
 }
 
 function signUp(date, topic) {
   const subject = encodeURIComponent(`WarsaAi — Sign Up: ${topic}`);
   const body = encodeURIComponent(`Hi,\n\nI would like to join the workshop taking place on ${date}.\n\nTopic: ${topic}\n\nPlease confirm my registration.\n\nThank you.`);
-  window.location.href = `mailto:am.warsame@googlemail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:ahmed@warsaai.com?subject=${subject}&body=${body}`;
 }
 
 /* ── EXPERIENCE ACCORDION ── */
