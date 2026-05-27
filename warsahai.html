@@ -4918,7 +4918,7 @@
       </div>
       <!-- Tab buttons -->
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
-        <button id="t6btn-sessions" onclick="t6Tab('sessions',this)" style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(232,160,69,0.45);background:rgba(232,160,69,0.18);color:var(--accent);font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">📅 Live Sessions</button>
+        <a href="mailto:ahmed@warsaai.com?subject=Book%20a%20Live%20AI%20Training%20Session&body=Hi%20Ahmed%2C%0A%0AI%27d%20like%20to%20book%20a%20live%20AI%20training%20session%20for%20my%20team.%0A%0AIndustry%3A%20%5BYOUR%20INDUSTRY%5D%0ATeam%20size%3A%20%5BNUMBER%5D%0APreferred%20format%3A%20%5BOn-site%20%2F%20Virtual%5D%0AAvailability%3A%20%5BDATES%5D%0A%0ALooking%20forward%20to%20hearing%20from%20you." style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(232,160,69,0.45);background:rgba(232,160,69,0.18);color:var(--accent);font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem" onmouseenter="this.style.background='rgba(232,160,69,0.3)'" onmouseleave="this.style.background='rgba(232,160,69,0.18)'">📅 Live Sessions</a>
         <button id="t6btn-prompts"  onclick="t6Tab('prompts',this)"  style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05);color:#4ADE80;font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">✦ 8 Prompts Included</button>
         <button id="t6btn-industries" onclick="t6Tab('industries',this)" style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(96,165,250,0.2);background:rgba(96,165,250,0.05);color:#60A5FA;font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">🏭 12 Industries</button>
       </div>
@@ -5962,10 +5962,10 @@ function t6Tab(tab, btn) {
     }
   });
 }
-// default: show sessions panel on load
+// default: show industries panel on load
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('t6btn-sessions');
-  if (btn) t6Tab('sessions', btn);
+  const btn = document.getElementById('t6btn-industries');
+  if (btn) t6Tab('industries', btn);
 });
 
 // Switch dashboard view on sidebar icon click
