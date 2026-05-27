@@ -746,21 +746,18 @@
     border: 1px solid var(--border);
     box-shadow: 0 40px 80px rgba(0,0,0,0.5);
     height: 480px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .meet-photo-frame img {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+    -webkit-object-fit: cover;
     object-position: center top;
-    filter: saturate(0.95);
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    backface-visibility: hidden;
   }
 
 
@@ -2373,7 +2370,8 @@
     color: var(--hpc, #ccc); background: rgba(0,0,0,0.35);
     border-radius: 100px; padding: 0.45rem 1.1rem;
     font-size: 0.8rem; font-weight: 700; white-space: nowrap;
-    cursor: pointer; appearance: none; font-family: inherit;
+    cursor: pointer;
+    min-height: 44px; appearance: none; font-family: inherit;
     transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   }
   .wf-hp:hover { background: rgba(255,255,255,0.07) !important; transform: scale(1.05); }
@@ -2476,6 +2474,7 @@
     white-space: nowrap;
   }
   .wf-conn-item:hover { border-color: var(--accent); background: rgba(232,160,69,0.06); }
+  a.wf-conn-item { text-decoration: none; cursor: pointer; }
   .wf-conn-item.sn-highlight {
     border-color: rgba(232,160,69,0.4); color: var(--accent);
     background: rgba(232,160,69,0.07);
@@ -2528,6 +2527,9 @@
     .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
     .hero-stats { gap: 1.25rem; margin-top: 2.5rem; }
     section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .wf-conn-strip { flex-wrap: wrap; justify-content: center; }
+    .wf-conn-arrow { display: none; }
+    .wf-conn-item { flex: 1 1 40%; text-align: center; }
     .about-visual { height: 200px; }
     .meet-photo-frame { height: 320px; }
     .uc-industry-grid { grid-template-columns: 1fr; }
@@ -3613,15 +3615,15 @@
   <div class="wf-connectors-wrap">
     <div class="wf-conn-label">Connected Platforms</div>
     <div class="wf-conn-strip">
-      <div class="wf-conn-item">☁️ Salesforce</div>
+      <a href="https://www.salesforce.com" target="_blank" rel="noopener" class="wf-conn-item">☁️ Salesforce</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">📋 Monday.com</div>
+      <a href="https://monday.com" target="_blank" rel="noopener" class="wf-conn-item">📋 Monday.com</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">🔵 Jira</div>
+      <a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener" class="wf-conn-item">🔵 Jira</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item">📘 Confluence</div>
+      <a href="https://www.atlassian.com/software/confluence" target="_blank" rel="noopener" class="wf-conn-item">📘 Confluence</a>
       <span class="wf-conn-arrow">→</span>
-      <div class="wf-conn-item sn-highlight">🤖 ServiceNow AI Agents</div>
+      <a href="https://www.servicenow.com/products/ai-agents.html" target="_blank" rel="noopener" class="wf-conn-item sn-highlight">🤖 ServiceNow AI Agents</a>
     </div>
     <div class="wf-sn-callout">
       <div class="wf-sn-icon">🤖</div>
