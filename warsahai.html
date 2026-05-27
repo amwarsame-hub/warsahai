@@ -2363,6 +2363,10 @@
     padding: 2rem 2.5rem; background: var(--card);
     border: 1px solid var(--border); border-radius: 16px;
     overflow-x: auto;
+    width: auto; height: auto;
+    flex-shrink: 1;
+    animation: none;
+    box-shadow: none;
   }
   .wf-hub-side { display: flex; flex-direction: column; gap: 0.65rem; flex-shrink: 0; }
   .wf-hp {
@@ -2509,18 +2513,23 @@
 
   @media (max-width: 900px) {
     .wf-hub {
-      flex-direction: column;
-      padding: 1.5rem 1rem;
-      gap: 1rem;
-      width: 100%;
-      min-width: 0;
-      overflow-x: visible;
+      flex-direction: column !important;
+      padding: 1.25rem 1rem !important;
+      gap: 1rem !important;
+      width: 100% !important;
+      height: auto !important;
+      min-width: 0 !important;
+      overflow-x: visible !important;
+      animation: none !important;
+      box-sizing: border-box !important;
     }
-    .wf-hub-arm { display: none; }
+    .wf-hub-arm { display: none !important; }
     .wf-hub-core {
-      width: 100%;
-      padding: 1.25rem 1rem;
-      border-radius: 12px;
+      width: 100% !important;
+      height: auto !important;
+      padding: 1.25rem 1rem !important;
+      border-radius: 12px !important;
+      box-sizing: border-box;
     }
     .wf-hub-title { font-size: 1.5rem; }
     .wf-hub-count { font-size: 0.75rem; }
@@ -4667,7 +4676,7 @@
   </div>
 
   <!-- Dashboard window mockup -->
-  <div class="dash-window">
+  <div class="dash-window" id="dashWindow">
 
     <!-- Browser chrome -->
     <div class="dash-chrome">
@@ -4681,21 +4690,21 @@
 
       <!-- Sidebar icons -->
       <div class="dash-sidebar">
-        <div class="dash-sb-item active">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#E8A045" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="dash-sb-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div class="dash-sb-item" style="margin-top:auto">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-        </div>
+        <button class="dash-sb-item active" onclick="switchDashView('overview',this)" title="Business Overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('analytics',this)" title="Revenue Analytics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('crm',this)" title="Client CRM">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('email',this)" title="Email Campaigns">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </button>
+        <button class="dash-sb-item" onclick="switchDashView('settings',this)" title="Automations" style="margin-top:auto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </button>
       </div>
 
       <!-- Main content -->
@@ -5108,7 +5117,56 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// Revenue data sets
+// ── View data for each sidebar icon ──
+const DASH_VIEWS = {
+  overview: {
+    title: 'Business Overview',
+    kpis: [
+      { id:'kpi-contacts', label:'Contacts',   val:1847,  prefix:'',  suffix:'',  delta:'▲ 12% vs prev period', up:true  },
+      { id:'kpi-leads',    label:'New Leads',  val:243,   prefix:'',  suffix:'',  delta:'▲ 24% vs prev period', up:true  },
+      { id:'kpi-pipeline', label:'Pipeline',   val:84200, prefix:'£', suffix:'',  delta:'▲ 8% vs prev period',  up:true, fmt:'k' },
+      { id:'kpi-revenue',  label:'Revenue',    val:32400, prefix:'£', suffix:'',  delta:'▲ 31% vs prev period', up:true  }
+    ]
+  },
+  analytics: {
+    title: 'Revenue Analytics',
+    kpis: [
+      { id:'kpi-contacts', label:'Total Revenue',  val:96200, prefix:'£', suffix:'',  delta:'▲ 31% YTD',       up:true  },
+      { id:'kpi-leads',    label:'Avg Deal Size',  val:2840,  prefix:'£', suffix:'',  delta:'▲ 18% vs Q3',     up:true  },
+      { id:'kpi-pipeline', label:'Win Rate',       val:68,    prefix:'',  suffix:'%', delta:'▲ 5% vs prev',    up:true  },
+      { id:'kpi-revenue',  label:'Churn Rate',     val:2.1,   prefix:'',  suffix:'%', delta:'▼ 0.4% improved', up:false }
+    ]
+  },
+  crm: {
+    title: 'Client CRM',
+    kpis: [
+      { id:'kpi-contacts', label:'Total Contacts', val:1847, prefix:'',  suffix:'', delta:'▲ 89 this month',   up:true  },
+      { id:'kpi-leads',    label:'Active Clients', val:312,  prefix:'',  suffix:'', delta:'▲ 14% vs prev',     up:true  },
+      { id:'kpi-pipeline', label:'Follow-ups Due', val:47,   prefix:'',  suffix:'', delta:'▼ 12 vs last week', up:false },
+      { id:'kpi-revenue',  label:'Proposals Out',  val:23,   prefix:'',  suffix:'', delta:'▲ 8 new',           up:true  }
+    ]
+  },
+  email: {
+    title: 'Email Campaigns',
+    kpis: [
+      { id:'kpi-contacts', label:'Emails Sent',  val:1240, prefix:'',  suffix:'',  delta:'▲ 22% this month', up:true },
+      { id:'kpi-leads',    label:'Open Rate',    val:41,   prefix:'',  suffix:'%', delta:'▲ 8% vs prev',     up:true },
+      { id:'kpi-pipeline', label:'Click Rate',   val:8.3,  prefix:'',  suffix:'%', delta:'▲ 2.1% vs prev',   up:true },
+      { id:'kpi-revenue',  label:'Conversions',  val:94,   prefix:'',  suffix:'',  delta:'▲ 37% this month', up:true }
+    ]
+  },
+  settings: {
+    title: 'Automations',
+    kpis: [
+      { id:'kpi-contacts', label:'Active Bots',   val:12,  prefix:'',  suffix:'',  delta:'▲ 3 added',         up:true  },
+      { id:'kpi-leads',    label:'Tasks Run',     val:8420, prefix:'', suffix:'',  delta:'▲ 1.2k this week',  up:true  },
+      { id:'kpi-pipeline', label:'Time Saved',    val:94,  prefix:'',  suffix:'h', delta:'▲ 22h vs prev',     up:true  },
+      { id:'kpi-revenue',  label:'Error Rate',    val:0.3, prefix:'',  suffix:'%', delta:'▼ 0.1% improved',   up:false }
+    ]
+  }
+};
+
+// Revenue chart data sets
 const CHART_DATA = {
   '90d': {
     current: [18,22,19,31,28,25,34,30,38,35,42,39,48,45,52,49,58,55,62,59,68,72,65,70,75,78,72,80,85,82],
@@ -5145,41 +5203,76 @@ function drawChart(period) {
     const y = H - (v / maxVal) * (H - 20);
     return [x, y];
   });
-
-  const toPath = (points) => points.map((p, i) => (i === 0 ? `M${p[0]},${p[1]}` : `L${p[0]},${p[1]}`)).join(' ');
-  const toArea = (points) => toPath(points) + ` L${points[points.length-1][0]},${H} L${points[0][0]},${H} Z`;
-
+  const toPath = (points) => points.map((p, i) => (i === 0 ? 'M'+p[0]+','+p[1] : 'L'+p[0]+','+p[1])).join(' ');
+  const toArea = (points) => toPath(points) + ' L'+points[points.length-1][0]+','+H+' L'+points[0][0]+','+H+' Z';
   const cp = pts(cur), pp = pts(pri);
-
   document.getElementById('chartLine').setAttribute('d', toPath(cp));
   document.getElementById('chartArea').setAttribute('d', toArea(cp));
   document.getElementById('chartPrior').setAttribute('d', toArea(pp));
 }
 
-// Count-up
-function countUp(id, target, prefix, suffix, duration) {
+// Count-up animation
+function countUp(id, target, prefix, suffix, duration, fmt) {
   const el = document.getElementById(id);
   if (!el) return;
   const start = performance.now();
   function step(now) {
     const t = Math.min((now - start) / duration, 1);
     const ease = 1 - Math.pow(1 - t, 3);
-    const val = Math.round(ease * target);
-    el.textContent = prefix + val.toLocaleString() + suffix;
+    const val = ease * target;
+    let display;
+    if (fmt === 'k') display = prefix + (val >= 1000 ? Math.round(val/1000) + 'k' : Math.round(val)) + suffix;
+    else if (Number.isInteger(target)) display = prefix + Math.round(val).toLocaleString() + suffix;
+    else display = prefix + val.toFixed(1) + suffix;
+    el.textContent = display;
     if (t < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
 
+// KPI label update
+function updateKpiLabels(kpis) {
+  kpis.forEach(k => {
+    const kpiEl = document.getElementById(k.id);
+    if (!kpiEl) return;
+    const card = kpiEl.closest('.dash-kpi');
+    if (!card) return;
+    const lbl = card.querySelector('.dash-kpi-label');
+    const delta = card.querySelector('.dash-kpi-delta');
+    if (lbl) lbl.textContent = k.label;
+    if (delta) {
+      delta.textContent = k.delta;
+      delta.className = 'dash-kpi-delta ' + (k.up ? 'up' : 'down');
+    }
+    countUp(k.id, k.val, k.prefix, k.suffix, 900 + Math.random()*400, k.fmt);
+  });
+}
+
+// Switch dashboard view on sidebar icon click
+function switchDashView(viewName, btn) {
+  document.querySelectorAll('.dash-sb-item').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const view = DASH_VIEWS[viewName] || DASH_VIEWS.overview;
+  // Update title
+  const titleEl = document.querySelector('.dash-toolbar-title');
+  if (titleEl) titleEl.textContent = view.title;
+  // Animate KPIs
+  updateKpiLabels(view.kpis);
+  // Redraw chart for analytics-type views
+  drawChart(currentPeriod);
+}
+
 // Transactions
 const TRANSACTIONS = [
-  { name:'Ahmed S.',     amount:'£1,200', status:'paid', icon:'✓' },
-  { name:'Sarah M.',     amount:'£850',   status:'paid', icon:'✓' },
-  { name:'James O.',     amount:'£2,400', status:'pend', icon:'◷' },
-  { name:'Priya K.',     amount:'£560',   status:'paid', icon:'✓' },
-  { name:'Tom W.',       amount:'£3,100', status:'paid', icon:'✓' },
-  { name:'Fatima A.',    amount:'£720',   status:'fail', icon:'✕' },
-  { name:'Chris L.',     amount:'£1,800', status:'pend', icon:'◷' },
+  { name:'Ahmed S.',   amount:'£1,200', status:'paid', icon:'✓' },
+  { name:'Sarah M.',   amount:'£850',   status:'paid', icon:'✓' },
+  { name:'James O.',   amount:'£2,400', status:'pend', icon:'◷' },
+  { name:'Priya K.',   amount:'£560',   status:'paid', icon:'✓' },
+  { name:'Tom W.',     amount:'£3,100', status:'paid', icon:'✓' },
+  { name:'Fatima A.',  amount:'£720',   status:'fail', icon:'✕' },
+  { name:'Chris L.',   amount:'£1,800', status:'pend', icon:'◷' },
+  { name:'Diana R.',   amount:'£4,250', status:'paid', icon:'✓' },
+  { name:'Marcus B.',  amount:'£980',   status:'paid', icon:'✓' },
 ];
 
 function renderTransactions() {
@@ -5190,11 +5283,11 @@ function renderTransactions() {
       <div class="txn-icon ${t.status}">${t.icon}</div>
       <div class="txn-name">${t.name}</div>
       <div class="txn-amt">${t.amount}</div>
-      <div class="txn-status ${t.status}" style="font-size:0.65rem;font-weight:700">${t.status === 'paid' ? 'Paid' : t.status === 'pend' ? 'Pending' : 'Failed'}</div>
+      <div class="txn-status ${t.status}" style="font-size:0.65rem;font-weight:700">${t.status==='paid'?'Paid':t.status==='pend'?'Pending':'Failed'}</div>
     </div>`).join('');
 }
 
-// Funnel bars animate
+// Funnel bars
 function animateFunnel() {
   document.querySelectorAll('.funnel-bar-fill').forEach(bar => {
     const pct = bar.dataset.pct;
@@ -5202,46 +5295,27 @@ function animateFunnel() {
   });
 }
 
-// Pipeline k-format count-up
-function countUpPipeline() {
-  const el = document.getElementById('kpi-pipeline');
-  if (!el) return;
-  const dur = 1400, target = 84200;
-  const start = performance.now();
-  (function step(now) {
-    const t = Math.min((now - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    const val = Math.round(ease * target);
-    el.textContent = '£' + (val >= 1000 ? Math.round(val/1000) + 'k' : val);
-    if (t < 1) requestAnimationFrame(step);
-  })(performance.now());
-}
-
-// IntersectionObserver triggers all animations when dashboard enters view
+// IntersectionObserver — watch the dash-window, not the old #dashboard section
 let dashAnimated = false;
 const dashObs = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting && !dashAnimated) {
     dashAnimated = true;
     drawChart(currentPeriod);
-    countUp('kpi-contacts', 1847,  '',  '',   1200);
-    countUp('kpi-leads',    243,   '',  '',   1000);
-    countUp('kpi-revenue',  32400, '£', '',   1600);
-    countUpPipeline();
-    countUp('ce-posts', 94,  '', '', 900);
-    countUp('ce-emails', 1240, '', '', 1000);
+    // Animate default overview KPIs
+    updateKpiLabels(DASH_VIEWS.overview.kpis);
     setTimeout(() => {
       document.getElementById('ce-opens').textContent = '41%';
       document.getElementById('ce-clicks').textContent = '8.3%';
     }, 1100);
+    countUp('ce-posts', 94, '', '', 900);
+    countUp('ce-emails', 1240, '', '', 1000);
     renderTransactions();
     animateFunnel();
   }
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
-const dashSection = document.getElementById('dashboard');
-if (dashSection) dashObs.observe(dashSection);
-
-
+const dashWin = document.getElementById('dashWindow');
+if (dashWin) dashObs.observe(dashWin);
 /* ── USE CASES SECTOR SWITCH ── */
 function switchSector(panelId, btn) {
   document.querySelectorAll('#ucSectors .uc-sector-btn').forEach(b => b.classList.remove('active'));
