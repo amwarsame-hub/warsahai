@@ -2698,6 +2698,11 @@
       AI Services
     </a></li>
 
+    <li class="sb-featured-item"><a href="#training" class="sb-link sb-link-featured" data-section="training" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="10" width="14" height="2" rx="1" fill="#E8A045" opacity="0.3"/><path d="M9 2L1 7l8 5 8-5-8-5z" fill="#E8A045"/><path d="M4 9v4c0 1.66 2.24 3 5 3s5-1.34 5-3V9" stroke="#E8A045" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      In-House AI Training
+    </a></li>
+
     <li class="sb-divider">Learning</li>
 
     
@@ -4647,7 +4652,7 @@
 
 
   <!-- ── SERVICE 06: IN-HOUSE AI TRAINING ── -->
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:2.5rem">
+  <div id="training" style="background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:2.5rem">
 
     <!-- Header Band -->
     <div style="background:linear-gradient(135deg,#0e0a00,#1c1400,#0e0a00);padding:2rem 2.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden">
@@ -4661,11 +4666,11 @@
         <h3 style="font-size:1.4rem;font-weight:900;color:white;margin:0 0 0.3rem;line-height:1.2">In-House AI Training</h3>
         <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);margin:0">Wall Street-grade AI training brought to your team — live, hands-on sessions built around your real workflows, documents, and industry.</p>
       </div>
-      <!-- Badges -->
-      <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
-        <span style="font-size:0.68rem;padding:4px 12px;background:rgba(232,160,69,0.15);border:1px solid rgba(232,160,69,0.4);border-radius:20px;color:var(--accent);font-weight:700">Live Sessions</span>
-        <span style="font-size:0.68rem;padding:4px 12px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.35);border-radius:20px;color:#4ADE80;font-weight:700">8 Prompts Included</span>
-        <span style="font-size:0.68rem;padding:4px 12px;background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3);border-radius:20px;color:#60A5FA;font-weight:700">12 Industries</span>
+      <!-- Tab buttons -->
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <button id="t6btn-sessions" onclick="t6Tab('sessions',this)" style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(232,160,69,0.45);background:rgba(232,160,69,0.18);color:var(--accent);font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">📅 Live Sessions</button>
+        <button id="t6btn-prompts"  onclick="t6Tab('prompts',this)"  style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(74,222,128,0.2);background:rgba(74,222,128,0.05);color:#4ADE80;font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">✦ 8 Prompts Included</button>
+        <button id="t6btn-industries" onclick="t6Tab('industries',this)" style="font-size:0.68rem;padding:5px 14px;border-radius:20px;border:1px solid rgba(96,165,250,0.2);background:rgba(96,165,250,0.05);color:#60A5FA;font-weight:700;cursor:pointer;transition:all 0.2s;outline:none">🏭 12 Industries</button>
       </div>
     </div>
 
@@ -4689,11 +4694,170 @@
       </div>
     </div>
 
-    <!-- Industry Cards + Pricing -->
+    <!-- Tabbed content panels -->
     <div style="padding:2rem 2rem 2rem">
 
-      <!-- Industry Grid -->
-      <div style="font-size:0.72rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem">Industries We Train</div>
+      <!-- ── PANEL: LIVE SESSIONS ── -->
+      <div id="t6panel-sessions" style="display:block">
+        <div style="font-size:0.72rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem">How a Training Session Works</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem">
+
+          <div style="background:var(--bg2);padding:1.6rem;position:relative">
+            <div style="font-family:monospace;font-size:2.5rem;font-weight:900;color:rgba(232,160,69,0.15);line-height:1;margin-bottom:0.5rem">01</div>
+            <div style="font-size:1rem;font-weight:800;color:var(--white);margin-bottom:0.5rem">Discovery Call</div>
+            <div style="font-size:0.62rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6rem">30 minutes &nbsp;·&nbsp; Free</div>
+            <p style="font-size:0.8rem;color:var(--grey);line-height:1.65;margin:0">We learn your business, your team's tech comfort, and where you're losing the most time. No pitch — just listening.</p>
+          </div>
+
+          <div style="background:var(--bg2);padding:1.6rem;position:relative">
+            <div style="font-family:monospace;font-size:2.5rem;font-weight:900;color:rgba(74,222,128,0.15);line-height:1;margin-bottom:0.5rem">02</div>
+            <div style="font-size:1rem;font-weight:800;color:var(--white);margin-bottom:0.5rem">Custom Curriculum</div>
+            <div style="font-size:0.62rem;font-weight:700;color:#4ADE80;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6rem">Built around your workflows</div>
+            <p style="font-size:0.8rem;color:var(--grey);line-height:1.65;margin:0">We build a training day using your real documents, your actual processes — not generic demos. Every example is yours.</p>
+          </div>
+
+          <div style="background:var(--bg2);padding:1.6rem;position:relative">
+            <div style="font-family:monospace;font-size:2.5rem;font-weight:900;color:rgba(96,165,250,0.15);line-height:1;margin-bottom:0.5rem">03</div>
+            <div style="font-size:1rem;font-weight:800;color:var(--white);margin-bottom:0.5rem">Live Training Day</div>
+            <div style="font-size:0.62rem;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6rem">On-site or virtual &nbsp;·&nbsp; Hands-on</div>
+            <p style="font-size:0.8rem;color:var(--grey);line-height:1.65;margin:0">Every attendee walks away with AI tools they can use the next morning. No theory-only slides — real outputs, real results.</p>
+          </div>
+
+          <div style="background:var(--bg2);padding:1.6rem;position:relative">
+            <div style="font-family:monospace;font-size:2.5rem;font-weight:900;color:rgba(167,139,250,0.15);line-height:1;margin-bottom:0.5rem">04</div>
+            <div style="font-size:1rem;font-weight:800;color:var(--white);margin-bottom:0.5rem">Follow-Up System</div>
+            <div style="font-size:0.62rem;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.6rem">30-day prompt library included</div>
+            <p style="font-size:0.8rem;color:var(--grey);line-height:1.65;margin:0">30-day prompt library + check-in call included. We measure what changed and outline what to tackle next.</p>
+          </div>
+
+        </div>
+
+        <!-- Format badges -->
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem">
+          <div style="display:flex;align-items:center;gap:0.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.1rem">
+            <span style="font-size:1.1rem">🏢</span>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white)">On-Site</div>
+              <div style="font-size:0.68rem;color:var(--grey)">We come to you</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.1rem">
+            <span style="font-size:1.1rem">💻</span>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white)">Virtual</div>
+              <div style="font-size:0.68rem;color:var(--grey)">Zoom / Teams / Meet</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.1rem">
+            <span style="font-size:1.1rem">⏱️</span>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white)">4–8 Hours</div>
+              <div style="font-size:0.68rem;color:var(--grey)">Half day or full day</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.1rem">
+            <span style="font-size:1.1rem">👥</span>
+            <div>
+              <div style="font-size:0.82rem;font-weight:700;color:var(--white)">1–20 People</div>
+              <div style="font-size:0.68rem;color:var(--grey)">Individual to full team</div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /sessions panel -->
+
+      <!-- ── PANEL: 8 PROMPTS ── -->
+      <div id="t6panel-prompts" style="display:none">
+        <div style="font-size:0.72rem;font-weight:700;color:#4ADE80;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem">8 Prompts Included</div>
+        <p style="font-size:0.82rem;color:var(--grey);margin-bottom:1.5rem">Every Full Day Workshop includes these 8 curated, industry-tested prompt templates — ready to use the morning after training.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2rem">
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(232,160,69,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(232,160,69,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">✉️</div>
+              <div style="font-size:0.7rem;font-weight:700;color:var(--accent)">Prompt 01</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Customer Reply</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Professional, on-brand responses to any customer message — complaints, enquiries, or reviews.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Write a professional reply to [NAME] who [SITUATION]. Tone: [friendly/formal]. Business: [TYPE]. Address: [KEY POINT].</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(74,222,128,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(74,222,128,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">📄</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#4ADE80">Prompt 02</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Proposal Generator</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Full client proposals including scope, timeline and investment — generated in under 2 minutes.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Create a proposal for [CLIENT] for [SERVICE]. Include: overview, scope, timeline, investment. Budget: [RANGE].</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(96,165,250,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(96,165,250,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">🔍</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#60A5FA">Prompt 03</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Market Research</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Competitor analysis and market positioning — formatted as a comparison table, ready to share.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Summarise the top 5 competitors for [BUSINESS] in [LOCATION]. For each: strengths, weaknesses, pricing. Table format.</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(249,115,22,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(249,115,22,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">📱</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#F97316">Prompt 04</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Content Calendar</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">A full 30-day social media plan with post ideas, captions, hashtags and optimal posting times.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Build a 30-day social plan for [BRAND]. Platforms: [LIST]. Goal: [AWARENESS/LEADS]. Voice: [TONE]. [X] posts/week.</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(167,139,250,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(167,139,250,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">📧</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#A78BFA">Prompt 05</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Email Sequence</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">5-email welcome or nurture sequence that converts — intro, story, value, objection, close.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Write a 5-email welcome sequence for [BUSINESS]. Email 1: welcome. 2: story. 3: value. 4: objection. 5: offer.</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(251,191,36,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(251,191,36,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">📝</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#FBBF24">Prompt 06</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Meeting Summary</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Turns raw meeting notes into structured action items, decisions, and next steps in seconds.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Summarise these notes: [PASTE]. Output: key decisions, action items with owners, next steps, open questions.</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(52,211,153,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(52,211,153,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">👤</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#34D399">Prompt 07</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Job Description</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Compelling, bias-aware job descriptions that attract the right candidates and reflect your culture.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Write a job description for a [ROLE] at [COMPANY TYPE]. Responsibilities: [LIST]. Salary: [RANGE]. Culture: [DESC].</div>
+          </div>
+
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color 0.2s" onmouseenter="this.style.borderColor='rgba(56,189,248,0.35)'" onmouseleave="this.style.borderColor='var(--border)'">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem">
+              <div style="width:28px;height:28px;background:rgba(56,189,248,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem">📊</div>
+              <div style="font-size:0.7rem;font-weight:700;color:#38BDF8">Prompt 08</div>
+            </div>
+            <div style="font-size:0.9rem;font-weight:800;color:var(--white);margin-bottom:0.4rem">Report Narration</div>
+            <p style="font-size:0.75rem;color:var(--grey);line-height:1.6;margin:0 0 0.75rem">Turns raw numbers and data into a clear executive summary — insights, concerns, and one recommendation.</p>
+            <div style="background:var(--bg3);border-radius:8px;padding:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:monospace;line-height:1.5">Turn these numbers into an executive summary: [DATA]. Focus: month-on-month change, highlights, 3 concerns, 1 action.</div>
+          </div>
+
+        </div>
+      </div><!-- /prompts panel -->
+
+      <!-- ── PANEL: 12 INDUSTRIES ── -->
+      <div id="t6panel-industries" style="display:none">
+        <div style="font-size:0.72rem;font-weight:700;color:#60A5FA;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem">Industries We Train</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem">
 
         <!-- Medium to Small Business -->
@@ -4853,6 +5017,7 @@
         </div>
 
       </div><!-- /industry grid -->
+      </div><!-- /industries panel -->
 
       <!-- Testimonial: Wahba -->
       <div style="background:linear-gradient(135deg,rgba(232,160,69,0.07),rgba(232,160,69,0.02));border:1px solid rgba(232,160,69,0.22);border-radius:14px;padding:1.4rem 1.75rem;margin-bottom:2rem;display:flex;align-items:flex-start;gap:1.25rem;flex-wrap:wrap">
@@ -5233,7 +5398,7 @@ function closeSidebar() {
 }
 
 /* ── SCROLL SPY ── */
-const spySections = ['home','about','meet','exchange','prompt','curriculum','workflows','usecases','tips','dashboard','sessions','register'];
+const spySections = ['home','about','meet','exchange','prompt','curriculum','workflows','usecases','tips','dashboard','sessions','register','training','aiservices'];
 
 function updateActiveNav() {
   const scrollY = window.scrollY + 120;
@@ -5513,6 +5678,45 @@ function updateKpiLabels(kpis) {
     countUp(k.id, k.val, k.prefix, k.suffix, 900 + Math.random()*400, k.fmt);
   });
 }
+
+// ── In-House AI Training tab switcher ──
+function t6Tab(tab, btn) {
+  // panels
+  ['sessions','prompts','industries'].forEach(id => {
+    const el = document.getElementById('t6panel-' + id);
+    if (el) el.style.display = 'none';
+  });
+  const panel = document.getElementById('t6panel-' + tab);
+  if (panel) panel.style.display = 'block';
+
+  // button styles: reset all, then highlight active
+  const cfg = {
+    sessions:   { active: 'rgba(232,160,69,0.2)',  border: 'rgba(232,160,69,0.5)',  color: 'var(--accent)', idle: 'rgba(232,160,69,0.05)', idleBorder: 'rgba(232,160,69,0.2)'  },
+    prompts:    { active: 'rgba(74,222,128,0.15)', border: 'rgba(74,222,128,0.5)',  color: '#4ADE80',       idle: 'rgba(74,222,128,0.05)',  idleBorder: 'rgba(74,222,128,0.2)'  },
+    industries: { active: 'rgba(96,165,250,0.15)', border: 'rgba(96,165,250,0.5)', color: '#60A5FA',       idle: 'rgba(96,165,250,0.05)',  idleBorder: 'rgba(96,165,250,0.2)'  }
+  };
+  ['sessions','prompts','industries'].forEach(id => {
+    const b = document.getElementById('t6btn-' + id);
+    if (!b) return;
+    const c = cfg[id];
+    if (id === tab) {
+      b.style.background    = c.active;
+      b.style.borderColor   = c.border;
+      b.style.color         = c.color;
+      b.style.boxShadow     = '0 0 12px ' + c.border;
+    } else {
+      b.style.background    = c.idle;
+      b.style.borderColor   = c.idleBorder;
+      b.style.color         = c.color;
+      b.style.boxShadow     = 'none';
+    }
+  });
+}
+// default: show sessions panel on load
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('t6btn-sessions');
+  if (btn) t6Tab('sessions', btn);
+});
 
 // Switch dashboard view on sidebar icon click
 function switchDashView(viewName, btn) {
