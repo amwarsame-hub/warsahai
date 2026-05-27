@@ -23,7 +23,7 @@
     --transition: 0.3s cubic-bezier(.4,0,.2,1);
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
   html { scroll-behavior: smooth; }
 
@@ -65,8 +65,11 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     transition: transform var(--transition);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   #sidebar::-webkit-scrollbar { display: none; }
@@ -269,6 +272,7 @@
     position: fixed; top: 0; left: 0; right: 0;
     height: 56px; z-index: 1001;
     background: rgba(9,9,11,0.95);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     align-items: center;
@@ -300,7 +304,7 @@
   /* sidebar overlay on mobile */
   #sb-overlay {
     display: none;
-    position: fixed; inset: 0;
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
     background: rgba(0,0,0,0.6);
     z-index: 999;
   }
@@ -1793,7 +1797,7 @@
 
   .wf-hub-ring {
     position: absolute;
-    inset: -30px;
+    top: -30px; right: -30px; bottom: -30px; left: -30px;
     border-radius: 50%;
     border: 1px dashed rgba(232,160,69,0.2);
     animation: spin-slow 30s linear infinite;
