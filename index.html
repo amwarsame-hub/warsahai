@@ -2,19 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>warsaAi — AI for Entrepreneurs</title>
-    <!-- Redirect to warsahai.html -->
     <script>
-        window.location.href = 'warsahai.html';
+        // Load warsahai.html content and replace the page without redirect
+        fetch('warsahai.html')
+            .then(response => response.text())
+            .then(html => {
+                document.documentElement.innerHTML = html;
+                // Update History API to clean URL
+                window.history.replaceState(null, 'warsaAi — AI for Entrepreneurs', '/');
+            })
+            .catch(error => {
+                console.error('Failed to load content:', error);
+                document.body.innerHTML = '<p>Error loading page. Please refresh.</p>';
+            });
     </script>
-    <!-- Fallback link if JavaScript is disabled -->
     <noscript>
         <meta http-equiv="refresh" content="0;url=warsahai.html">
-        <p>If you are not redirected automatically, <a href="warsahai.html">click here</a>.</p>
     </noscript>
 </head>
 <body>
-    <p>Redirecting to warsaAi...</p>
+    <p style="text-align: center; padding: 2rem; font-family: Arial, sans-serif; color: #999;">Loading warsaAi...</p>
 </body>
 </html>
