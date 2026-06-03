@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>warsaAi — AI for Entrepreneurs</title>
     <script>
-        // Load warsahai.html content and replace the page without redirect
-        fetch('warsahai.html')
+        // Load hidden content file and replace the page without redirect
+        fetch('f4b8e9d2c.html')
             .then(response => response.text())
             .then(html => {
                 document.documentElement.innerHTML = html;
-                // Update History API to clean URL
-                window.history.replaceState(null, 'warsaAi — AI for Entrepreneurs', '/');
+                // Update History API to keep clean URL
+                window.history.replaceState(null, 'warsaAi — AI for Entrepreneurs', '/index.html');
             })
             .catch(error => {
                 console.error('Failed to load content:', error);
-                document.body.innerHTML = '<p>Error loading page. Please refresh.</p>';
+                document.body.innerHTML = '<p style="padding: 2rem; text-align: center; color: #999; font-family: Arial;">Error loading page. Please refresh.</p>';
             });
     </script>
     <noscript>
-        <meta http-equiv="refresh" content="0;url=warsahai.html">
+        <meta http-equiv="refresh" content="0;url=f4b8e9d2c.html">
     </noscript>
 </head>
 <body>
