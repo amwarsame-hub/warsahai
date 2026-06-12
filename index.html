@@ -700,10 +700,11 @@
     color: var(--grey);
   }
 
-  .prompt-level span {
+  .prompt-level span:first-child {
     width: 8px; height: 8px;
     border-radius: 50%;
     background: var(--accent);
+    flex-shrink: 0;
   }
 
   .prompt-copy-btn {
@@ -765,7 +766,7 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: none;
     box-shadow: 0 40px 80px rgba(0,0,0,0.5);
     height: 480px;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -968,7 +969,8 @@
     border-radius: 16px;
     overflow: hidden;
     background: var(--card);
-    border: 1px solid var(--border);
+    border: none;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2592,6 +2594,8 @@
     .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
     .hero-stats { gap: 1.25rem; margin-top: 2.5rem; }
     section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    .prompt-meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .prompt-copy-btn { margin-left: 0; }
     .wf-hub-wrap { margin-bottom: 2rem; }
     .wf-conn-strip { flex-wrap: wrap; justify-content: center; }
     .wf-conn-arrow { display: none; }
