@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+  ignore = "exit 0"
+
+[context.production]
+  branch = "test"
