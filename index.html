@@ -2615,6 +2615,9 @@
     .hero-stats { flex-direction: column; align-items: center; gap: 1rem; }
     .meet-photo-frame { height: 260px; }
   }
+
+  /* ─── PAGE ROUTING ─── */
+  section:not(.page-active) { display: none !important; }
   </style>
 </head>
 <body>
@@ -2708,62 +2711,33 @@
   <!-- Nav items -->
   <ul class="sb-nav" id="sbNav">
 
-    
-    <li><a href="#about" class="sb-link" data-section="about" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
+    <li><a href="#about" class="sb-link" data-page="about" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="6" r="3" fill="#E8A045" opacity="0.9"/><path d="M3 16c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="#E8A045" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/></svg>
       About
     </a></li>
-    
-    <li><a href="#meet" class="sb-link" data-section="meet" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
-      Meet Ahmed
-    </a></li>
 
-    <li class="sb-featured-item"><a href="#aiservices" class="sb-link sb-link-featured" data-section="aiservices" onclick="closeSidebar()">
+    <li class="sb-featured-item"><a href="#aiservices" class="sb-link sb-link-featured" data-page="aiservices" onclick="closeSidebar()">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1L11 6.5H17L12.5 10L14 16L9 12.5L4 16L5.5 10L1 6.5H7L9 1Z" fill="#E8A045"/><rect x="5" y="7" width="3" height="6" rx="1" fill="#080808" opacity="0.5"/><rect x="10" y="5" width="3" height="8" rx="1" fill="#080808" opacity="0.5"/></svg>
       AI Services
     </a></li>
 
-    <li class="sb-featured-item"><a href="#training" class="sb-link sb-link-featured" data-section="training" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="10" width="14" height="2" rx="1" fill="#E8A045" opacity="0.3"/><path d="M9 2L1 7l8 5 8-5-8-5z" fill="#E8A045"/><path d="M4 9v4c0 1.66 2.24 3 5 3s5-1.34 5-3V9" stroke="#E8A045" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-      In-House AI Training
-    </a></li>
-
-    <li class="sb-divider">Learning</li>
-
-    
-    <li><a href="#curriculum" class="sb-link" data-section="curriculum" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
+    <li><a href="#curriculum" class="sb-link" data-page="curriculum" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="2" width="12" height="14" rx="2" stroke="#E8A045" stroke-width="1.5" fill="none" opacity="0.7"/><line x1="6" y1="6" x2="12" y2="6" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/><line x1="6" y1="9" x2="12" y2="9" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/><line x1="6" y1="12" x2="10" y2="12" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg>
       Curriculum
     </a></li>
-    
-    <li><a href="#exchange" class="sb-link" data-section="exchange" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
-      Prompt Exchange
-    </a></li>
-    
-    <li><a href="#prompt" class="sb-link" data-section="prompt" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
-      Prompt of the Day
+
+    <li><a href="#tips" class="sb-link" data-page="tips" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="7" r="4.5" stroke="#E8A045" stroke-width="1.5" fill="none" opacity="0.8"/><line x1="9" y1="11.5" x2="9" y2="15" stroke="#E8A045" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/><line x1="7" y1="15" x2="11" y2="15" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+      Tips
     </a></li>
 
-    
-    <li><a href="#usecases" class="sb-link" data-section="usecases" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
-      Use Cases
-    </a></li>
-    
-    <li><a href="#tips" class="sb-link" data-section="tips" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
-      Practical Tips
+    <li><a href="#prompts" class="sb-link" data-page="prompts" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h12a1 1 0 011 1v8a1 1 0 01-1 1H6l-3 3V4a1 1 0 011-1z" stroke="#E8A045" stroke-width="1.5" fill="none" opacity="0.8"/><line x1="6" y1="7" x2="12" y2="7" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.9"/><line x1="6" y1="10" x2="10" y2="10" stroke="#E8A045" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/></svg>
+      Prompts
     </a></li>
 
-    <li class="sb-divider">More</li>
-
-    
-    <li><a href="#workflows" class="sb-link" data-section="workflows" onclick="closeSidebar()">Workflows</a></li>
-        <li><a href="#sessions" class="sb-link" data-section="sessions" onclick="closeSidebar()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="9,1 10.8,6.2 16.5,6.2 11.8,9.5 13.6,14.7 9,11.4 4.4,14.7 6.2,9.5 1.5,6.2 7.2,6.2" fill="#E8A045" opacity="0.9"/><rect x="4" y="4" width="3" height="9" rx="1" fill="#888" opacity="0.6"/><rect x="5" y="6" width="5" height="6" rx="1" fill="#888" opacity="0.4"/><rect x="8" y="5" width="6" height="8" rx="1" fill="#888" opacity="0.5"/></svg>
+    <li><a href="#sessions" class="sb-link" data-page="sessions" onclick="closeSidebar()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="14" height="12" rx="2" stroke="#E8A045" stroke-width="1.5" fill="none" opacity="0.7"/><line x1="2" y1="8" x2="16" y2="8" stroke="#E8A045" stroke-width="1.2" opacity="0.5"/><line x1="6" y1="2" x2="6" y2="6" stroke="#E8A045" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/><line x1="12" y1="2" x2="12" y2="6" stroke="#E8A045" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/></svg>
       Sessions
     </a></li>
 
@@ -5674,23 +5648,75 @@ function closeSidebar() {
   document.getElementById('sb-overlay').classList.remove('show');
 }
 
-/* ── SCROLL SPY ── */
-const spySections = ['home','about','meet','exchange','prompt','curriculum','workflows','usecases','tips','dashboard','sessions','register','training','aiservices'];
+/* ── PAGE ROUTER ── */
+const PAGE_MAP = {
+  about:      ['home', 'about', 'meet', 'community'],
+  aiservices: ['aiservices'],
+  curriculum: ['curriculum'],
+  tips:       ['usecases', 'workflows'],
+  prompts:    ['tips', 'prompt', 'exchange'],
+  sessions:   ['sessions', 'register'],
+};
 
-function updateActiveNav() {
-  const scrollY = window.scrollY + 120;
-  let current = 'home';
-  spySections.forEach(id => {
+// Reverse map: section id → page key
+const SECTION_TO_PAGE = {};
+Object.entries(PAGE_MAP).forEach(([page, sections]) => {
+  sections.forEach(s => { SECTION_TO_PAGE[s] = page; });
+});
+SECTION_TO_PAGE['training'] = 'aiservices';
+
+function showPage(pageId, scrollToId) {
+  if (!PAGE_MAP[pageId]) return;
+
+  document.querySelectorAll('section').forEach(s => s.classList.remove('page-active'));
+  PAGE_MAP[pageId].forEach(id => {
     const el = document.getElementById(id);
-    if (el && el.offsetTop <= scrollY) current = id;
+    if (el) el.classList.add('page-active');
   });
+
+  if (scrollToId && scrollToId !== pageId) {
+    requestAnimationFrame(() => {
+      const sub = document.getElementById(scrollToId);
+      if (sub) sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      else window.scrollTo(0, 0);
+    });
+  } else {
+    window.scrollTo(0, 0);
+  }
+
   document.querySelectorAll('.sb-link').forEach(link => {
-    link.classList.toggle('active', link.dataset.section === current);
+    link.classList.toggle('active', link.dataset.page === pageId);
   });
+
+  history.pushState(null, '', '#' + pageId);
 }
 
-window.addEventListener('scroll', updateActiveNav, { passive: true });
-updateActiveNav();
+// Intercept all in-page anchor clicks
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const id = a.getAttribute('href').slice(1);
+  if (!id) return;
+  const pageId = PAGE_MAP[id] ? id : SECTION_TO_PAGE[id];
+  if (pageId) {
+    e.preventDefault();
+    closeSidebar();
+    showPage(pageId, id);
+  }
+}, true);
+
+window.addEventListener('popstate', () => {
+  const id = location.hash.slice(1) || 'about';
+  const pageId = PAGE_MAP[id] ? id : (SECTION_TO_PAGE[id] || 'about');
+  showPage(pageId, id);
+});
+
+// Init
+(function() {
+  const id = location.hash.slice(1) || 'about';
+  const pageId = PAGE_MAP[id] ? id : (SECTION_TO_PAGE[id] || 'about');
+  showPage(pageId, id);
+})();
 
 /* ── TABS ── */
 function switchTab(e, panelId) {
