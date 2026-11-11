@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <title>warsaAi — AI for Entrepreneurs</title>
 <meta name="description" content="WarsaAi — live in-house AI training and custom automation services for entrepreneurs, small businesses, real estate, construction, HR, finance and more. Built around your real workflows.">
 <meta property="og:title" content="WarsaAi — AI for Entrepreneurs">
@@ -43,7 +43,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--light);
     line-height: 1.6;
@@ -392,7 +392,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Syne', 'Segoe UI', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
   }
 
   h1 {
@@ -2614,6 +2614,10 @@
   
   /* ─── LIVE-SITE THEME OVERRIDES (warsaai.com light palette) ─── */
   body::before { display: none; }
+  /* Typography matched to test.warsaai.com: one family, semi-bold headings */
+  h1, h2, h3, h4, h5 { font-weight: 600 !important; letter-spacing: -0.3px !important; }
+  h1 { letter-spacing: -0.02em !important; }
+  h2, .section-title { letter-spacing: -0.5px !important; }
   .ai-orb::after { color: #fff; }
   .prompt-level span[id] { width: auto; height: auto; background: none; border-radius: 0; }
   .lv-prompt { max-width: 720px; margin: 2.25rem auto 0; background: rgba(255,255,255,0.92); border: 1px solid #E2E8F0; border-radius: 24px; padding: 1rem; box-shadow: 0 25px 50px -12px rgba(15,23,42,0.18); text-align: left; }
