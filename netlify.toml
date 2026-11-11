@@ -1,6 +1,17 @@
+# test2.warsaai.com is built from the warsaai-site React app on the `test` branch.
 [build]
-  publish = "."
-  ignore = "exit 0"
+  base = "warsaai-site"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [context.production]
   branch = "test"
+
+# Single-page app: let the client-side router handle every path.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
