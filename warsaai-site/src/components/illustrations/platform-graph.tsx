@@ -9,7 +9,7 @@ export const PlatformLogo = ({ name, className }: { name: string; className?: st
   return logo ? (
     <img src={logo} alt="" loading="lazy" className={cn("size-5 object-contain", className)} />
   ) : (
-    <span aria-hidden="true" className={cn("flex size-5 items-center justify-center text-[11px] font-bold text-primary", className)}>
+    <span aria-hidden="true" className={cn("flex size-5 items-center justify-center rounded-full bg-brand-sky/50 text-[11px] font-bold text-primary", className)}>
       {name
         .split(/[\s.]+/)
         .map((word) => word[0])
@@ -38,7 +38,7 @@ const PlatformGraph = ({ hub, icon: Icon, apps, className }: PlatformGraphProps)
   return (
     <figure className={cn("rounded-2xl bg-brand-frost p-4", className)}>
       <div
-        className="relative mx-auto aspect-[4/3] w-full max-w-[560px]"
+        className="relative mx-auto aspect-[3/4] w-full max-w-[560px] sm:aspect-[4/3]"
         role="img"
         aria-label={`${hub} connects to ${apps.join(", ")}`}
       >
@@ -54,16 +54,16 @@ const PlatformGraph = ({ hub, icon: Icon, apps, className }: PlatformGraphProps)
               strokeWidth="1.5"
               strokeDasharray="5 4"
               className={node.kind === "PaaS" ? "stroke-brand-ink" : "stroke-brand-cobalt-glow"}
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.06 }}
             />
           ))}
         </svg>
 
-        <div className="absolute left-1/2 top-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-0.5 rounded-full bg-primary text-primary-foreground shadow-lg sm:size-24">
-          <Icon className="size-6" />
-          <span className="text-[10px] font-semibold uppercase tracking-wide">AI hub</span>
+        <div className="absolute left-1/2 top-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-0.5 rounded-full bg-primary text-primary-foreground shadow-lg sm:size-24">
+          <Icon className="size-5 sm:size-6" />
+          <span className="text-[9px] font-semibold uppercase tracking-wide sm:text-[10px]">AI hub</span>
         </div>
 
         {nodes.map((node, index) => (
@@ -75,7 +75,7 @@ const PlatformGraph = ({ hub, icon: Icon, apps, className }: PlatformGraphProps)
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.2 + index * 0.06 }}
           >
-            <div className="flex w-[84px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1 rounded-xl border border-border bg-card px-1.5 py-2 text-center shadow-sm sm:w-[104px]">
+            <div className="flex w-[76px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1 rounded-xl border border-border bg-card px-1.5 py-2 text-center shadow-sm sm:w-[104px]">
               <PlatformLogo name={node.name} className="size-6" />
               <span className="text-[11px] font-semibold leading-tight text-foreground sm:text-xs">{node.name}</span>
               <span
