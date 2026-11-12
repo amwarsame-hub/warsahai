@@ -4,6 +4,7 @@ import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "../../ui/card";
+import { appConfig } from "@/utils/app-config";
 
 type FeatureItem = {
   id: string;
@@ -143,9 +144,9 @@ const Features = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement> | null }
                       <div ref={lottieContainerRef} className="w-32 h-32 sm:w-40 sm:h-40 md:w-full md:h-full relative">
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={isDesktop ? { x, y, scale } : {}}>
                           <img
-                            src="/images/coin.svg"
-                            alt="Coin"
-                            className="w-full h-full object-cover"
+                            src={appConfig.logo}
+                            alt={`${appConfig.name} logo`}
+                            className="w-full h-full object-contain"
                           />
                         </motion.div>
                       </div>

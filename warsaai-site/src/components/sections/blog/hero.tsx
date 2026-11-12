@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import { appConfig } from "@/utils/app-config";
 import { Badge } from "@/components/ui/badge";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
@@ -22,7 +23,7 @@ const BlogHero = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.1}>
             <Badge variant="color" className="gap-2">
-              <span>Built by <span className="text-white">Ahmed Warsame</span> in London.</span>
+              <span>Built by <span className="text-white">{appConfig.name}</span></span>
             </Badge>
           </AnimateOnView>
         </StaggerContainer>

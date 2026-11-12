@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import TestimonialCard from "@/components/ui/testimonial-card";
-import VideoTestimonialCard from "@/components/ui/video-testimonial-card";
 
 const Testimonials = () => {
   return (
@@ -35,35 +34,23 @@ const Testimonials = () => {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-12 gap-4">
           <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-1 lg:order-1"
+            className="col-span-12 sm:col-span-6"
             companyLogo="/images/homepage/logo-5.svg"
             text="Sample testimonial — replace this quote with your own client result."
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"
           />
-          <VideoTestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-3 sm:order-2 lg:order-2"
-            thumbnail="/images/homepage/testimonial-1.webp"
-            logo="/images/homepage/logo-2.svg"
-            videoUrl="https://youtu.be/xDwR1_vrIg8"
-          />
           <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-4 lg:order-3"
+            className="col-span-12 sm:col-span-6"
             companyLogo="/images/homepage/logo-3.svg"
             text="Sample testimonial — replace this quote with your own client result."
             avatar="/images/homepage/avatar-1.png"
             author="Sophia Martinez"
             designation="Co-Founder & CEO"
           />
-          <VideoTestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-3 sm:order-3 lg:order-4"
-            thumbnail="/images/homepage/testimonial-2.webp"
-            logo="/images/homepage/logo-4.svg"
-            videoUrl="https://youtu.be/xDwR1_vrIg8"
-          />
           <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-4 sm:order-5 lg:order-5"
+            className="col-span-12 sm:col-span-6"
             companyLogo="/images/homepage/logo-5.svg"
             text="Sample testimonial — replace this quote with your own client result."
             avatar="/images/homepage/avatar-1.png"
@@ -71,7 +58,7 @@ const Testimonials = () => {
             designation="Co-Founder & CEO"
           />
           <TestimonialCard
-            className="col-span-12 sm:col-span-6 lg:col-span-5 sm:order-6 lg:order-6"
+            className="col-span-12 sm:col-span-6"
             companyLogo="/images/homepage/logo-1.svg"
             text="Sample testimonial — replace this quote with your own client result."
             avatar="/images/homepage/avatar-1.png"

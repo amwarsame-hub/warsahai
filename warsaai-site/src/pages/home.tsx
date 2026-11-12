@@ -8,10 +8,12 @@ import { lazy, Suspense, useRef } from "react";
 // Lazy load below-the-fold components for code splitting
 const Blog = lazy(() => import("@/components/sections/home/blog"));
 const BusinessAccount = lazy(() => import("@/components/sections/home/business-account"));
+const CEOProfile = lazy(() => import("@/components/sections/company/ceo-profile"));
 const CoreFeatures = lazy(() => import("@/components/sections/home/core-features"));
 const Explore = lazy(() => import("@/components/sections/home/explore"));
 const Integrations = lazy(() => import("@/components/sections/home/integrations"));
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
+const Pillars = lazy(() => import("@/components/sections/home/pillars"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const StartBuilding = lazy(() => import("@/components/sections/home/start-building"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
@@ -54,6 +56,9 @@ const Home = () => {
         <Hero heroRef={heroRef} />
         <Features heroRef={heroRef} />
         <Suspense fallback={null}>
+          <Pillars />
+        </Suspense>
+        <Suspense fallback={null}>
           <CoreFeatures />
         </Suspense>
         <Suspense fallback={null}>
@@ -73,6 +78,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <StartBuilding />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CEOProfile />
         </Suspense>
         <Suspense fallback={null}>
           <Testimonials />

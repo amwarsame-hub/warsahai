@@ -1,19 +1,10 @@
-import insights from "@/assets/lottie/insights.json";
-import revioPay from "@/assets/lottie/revio-pay.json";
-import sheild from "@/assets/lottie/sheild.json";
 import Container from "@/components/container";
+import { IntegrationsBoard, WorkflowStatusBoard, WorkflowTrendChart } from "@/components/illustrations/dashboards";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { AnimatePresence, motion } from "framer-motion";
-import LottieComponent from "lottie-react";
-
-// The dev server's prebundled build hands back the module namespace instead of
-// the component, so unwrap it before rendering.
-type LottieType = typeof LottieComponent;
-const Lottie: LottieType =
-  (LottieComponent as unknown as { default?: LottieType }).default ?? LottieComponent;
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -28,7 +19,7 @@ const BusinessAccount = () => {
       badge: "Strategy",
       heading: "Start with the workflow",
       description: "Map manual work, assess ROI, and agree a practical automation roadmap.",
-      lottie: revioPay,
+      visual: <WorkflowTrendChart />,
       link: "/contact",
     },
     {
@@ -37,7 +28,7 @@ const BusinessAccount = () => {
       badge: "Implementation",
       heading: "Build once, run forever",
       description: "Custom AI agents and integrations designed for set-it-and-forget-it reliability.",
-      lottie: insights,
+      visual: <WorkflowStatusBoard className="w-full max-w-[460px]" />,
       link: "/contact",
     },
     {
@@ -46,7 +37,7 @@ const BusinessAccount = () => {
       badge: "Scaling",
       heading: "Connect any app you already use",
       description: "Bridge CRM, ERP and comms tools, then tune latency, accuracy and scale.",
-      lottie: sheild,
+      visual: <IntegrationsBoard className="w-full max-w-[460px]" />,
       link: "/contact",
     },
   ];
@@ -148,11 +139,17 @@ const BusinessAccount = () => {
           {/* Right Side - Card Illustration */}
           <div className="relative flex items-center justify-center md:min-h-[524px] p-4 max-w-[691px] w-full bg-card rounded-4xl">
 
-            {/* Prominent Black Card - Foreground */}
             <AnimatePresence mode="wait">
-              <div aria-hidden="true">
-                <Lottie animationData={tabs[activeTab].lottie} loop={true} />
-              </div>
+              <motion.div
+                key={activeTab}
+                className="flex w-full justify-center md:p-8"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+              >
+                {tabs[activeTab].visual}
+              </motion.div>
             </AnimatePresence>
           </div>
         </div>
