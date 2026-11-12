@@ -1,7 +1,7 @@
 export const appConfig = {
     name: "WarsaAi",
     description: "WarsaAi designs, builds and integrates custom AI solutions — plus a Saturday live community that takes you from zero to pro with Claude AI.",
-    url: "https://test.warsaai.com",
+    url: "https://www.warsaai.com",
     logo: "/images/common/logo.png",
     favicon: "/favicon.png",
     ogImage: "/og-image.jpg",
