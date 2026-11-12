@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { integrationApps, NamedIcon } from "@/data/integrations";
+import { getPlatform } from "@/data/platforms";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
@@ -27,12 +28,13 @@ const Logo = ({ logo, scrollYProgress }: { logo: LogoItem; scrollYProgress: Moti
   const opacity = useTransform(scrollYProgress, range, [0, 1], { clamp: true });
   const scale = useTransform(scrollYProgress, range, [0.8, 1], { clamp: true });
   const Icon = logo.app.icon;
+  const brand = getPlatform(logo.app.name).logo;
 
   return (
     <motion.div className="absolute" style={{ left: `${logo.x}%`, top: `${logo.y}%`, opacity, scale }}>
       <div className="flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-border bg-background py-1.5 pl-1.5 pr-3 text-xs font-semibold text-foreground shadow-sm sm:text-sm md:gap-3 md:py-2 md:pl-2 md:pr-6 md:text-lg">
-        <span className="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground md:size-11">
-          <Icon className="size-4 md:size-5" />
+        <span className={`flex size-7 items-center justify-center rounded-full md:size-11 ${brand ? "bg-secondary" : "bg-primary text-primary-foreground"}`}>
+          {brand ? <img src={brand} alt="" className="size-4 object-contain md:size-5" /> : <Icon className="size-4 md:size-5" />}
         </span>
         {logo.app.name}
       </div>

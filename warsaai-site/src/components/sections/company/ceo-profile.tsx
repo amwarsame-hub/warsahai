@@ -83,6 +83,12 @@ const CEOProfile = () => {
                                 );
                             })}
                         </ul>
+                        <img
+                            src="/images/company/signature.svg"
+                            alt={`${founder.name} signature`}
+                            className="mt-8 h-12 w-auto"
+                            loading="lazy"
+                        />
                     </AnimateOnView>
                 </div>
 

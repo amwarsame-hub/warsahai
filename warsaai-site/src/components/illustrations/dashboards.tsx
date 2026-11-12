@@ -9,6 +9,7 @@ import {
   trendMonths,
   WorkflowStatus,
 } from "@/data/integrations";
+import { getPlatform } from "@/data/platforms";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { BellRing, FilePlus2, FileText, Sparkles } from "lucide-react";
@@ -46,16 +47,19 @@ const useCycle = (count: number, interval = 2600) => {
   return [index, setIndex] as const;
 };
 
-const IconTile = ({ item, className }: { item: NamedIcon; className?: string }) => (
-  <span
-    className={cn(
-      "flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-sky/40 text-primary",
-      className,
-    )}
-  >
-    <item.icon className="size-[18px]" />
-  </span>
-);
+const IconTile = ({ item, className }: { item: NamedIcon; className?: string }) => {
+  const { logo } = getPlatform(item.name);
+  return (
+    <span
+      className={cn(
+        "flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-sky/40 text-primary",
+        className,
+      )}
+    >
+      {logo ? <img src={logo} alt="" className="size-[18px] object-contain" /> : <item.icon className="size-[18px]" />}
+    </span>
+  );
+};
 
 /** Labelled icon tiles, e.g. connected apps or social platforms. */
 export const IconTileGrid = ({ items, className }: { items: NamedIcon[]; className?: string }) => (

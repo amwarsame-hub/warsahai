@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: "Who is WarsaAi for?",
-    answer: "Entrepreneurs and connected departments - Sales, Ops, Support, Legal and Finance - that want to stop trading time for money.",
+    answer: "All businesses and all departments. Entrepreneurs and connected departments - IT, Sales, Ops, Support, Legal and Finance - that want to stop trading time for money.",
   },
   {
     question: "How do I get started?",

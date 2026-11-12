@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import PlatformGraph from "@/components/illustrations/platform-graph";
 import SectionHeading from "@/components/sections/shared/section-heading";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
@@ -10,6 +11,8 @@ import {
   ClipboardCheck,
   FolderOpen,
   GraduationCap,
+  Headset,
+  Monitor,
   LucideIcon,
   Settings,
   ShieldCheck,
@@ -18,6 +21,8 @@ import {
 import { useState } from "react";
 
 const departmentIcons: Record<string, LucideIcon> = {
+  it: Monitor,
+  "customer-service": Headset,
   finance: Banknote,
   hr: Users,
   ops: Settings,
@@ -102,14 +107,10 @@ const WorkflowHub = () => {
                 </ul>
 
                 <div className="mt-auto">
-                  <p className="text-sm text-muted-foreground mb-3">Connects with</p>
-                  <ul className="flex flex-wrap gap-2">
-                    {department.apps.map((app) => (
-                      <li key={app} className="rounded-full border border-border px-3 py-1 text-sm text-card-foreground">
-                        {app}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Connects with {department.apps.length} SaaS / PaaS platforms
+                  </p>
+                  <PlatformGraph hub={department.title} icon={ActiveIcon} apps={department.apps} />
                 </div>
               </CardContent>
             </Card>
