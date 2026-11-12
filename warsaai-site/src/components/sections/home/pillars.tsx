@@ -62,7 +62,7 @@ const Pillars = () => {
               once
               y={30}
               delay={index * 0.05}
-              className="group overflow-hidden rounded-lg bg-card transition-transform duration-300 hover:-translate-y-1"
+              className="group h-full overflow-hidden rounded-lg bg-card"
             >
               <div className="relative flex h-44 items-center justify-center bg-brand-sky/30 p-5">
                 <Art className="transition-transform duration-300 group-hover:scale-105" />

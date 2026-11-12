@@ -61,10 +61,10 @@ const Hero = ({ heroRef }: {
 
         {/* Product previews */}
         <div className="relative flex flex-col items-center justify-between gap-6 md:flex-row md:items-start xl:gap-10 mt-[50px] xl:mt-24 max-w-[904px] mx-auto">
-          <AnimateOnView delay={0.6} className={`relative z-10 w-full max-w-[420px] ${isMobile ? "" : "animate-float"}`}>
+          <AnimateOnView delay={0.6} className={`relative z-10 w-full max-w-[330px] ${isMobile ? "" : "animate-float"}`}>
             <IntegrationsBoard limit={6} />
           </AnimateOnView>
-          <AnimateOnView delay={0.7} className={`relative z-10 w-full max-w-[360px] ${isMobile ? "" : "animate-float-slow"}`}>
+          <AnimateOnView delay={0.7} className={`relative z-10 w-full max-w-[300px] ${isMobile ? "" : "animate-float-slow"}`}>
             <CollaborationFeed />
           </AnimateOnView>
         </div>
