@@ -22,6 +22,16 @@ const GlobalLocations = () => {
             description: "Around 20 years of front-office experience across Goldman Sachs, BNP Paribas and Rothesay, spanning multiple markets."
         },
         {
+            title: "Managed File Transfer (MFT)",
+            location: "Secure, governed file exchange",
+            description: "A governed platform for reliably transferring files — especially large or sensitive data — between systems, users and organisations. It improves security, automation, visibility and compliance compared to traditional methods like FTP and HTTP."
+        },
+        {
+            title: "Cloud Services & Migration",
+            location: "On-prem to cloud",
+            description: "Cloud services and migrations from on-premises infrastructure to the cloud, including system-to-system moves across Azure and AWS."
+        },
+        {
             title: "Institutional Experience",
             location: "Fixed Income and Rates",
             description: "Electronic trading, client onboarding and technology infrastructure at institutional scale."

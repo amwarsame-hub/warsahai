@@ -72,6 +72,18 @@ export interface WorkflowDepartment {
 
 export const workflowDepartments: WorkflowDepartment[] = [
   {
+    id: "it",
+    title: "IT",
+    flows: ["Service desk ticket triage & routing", "Password & access request handling", "Change request drafting", "Asset & licence tracking digests", "Outage & incident communications"],
+    apps: ["ServiceNow", "Jira", "Microsoft 365", "Azure", "AWS", "Okta"],
+  },
+  {
+    id: "customer-service",
+    title: "Customer Service & Chatbots",
+    flows: ["AI chatbot for first-line enquiries", "Ticket triage & smart routing", "Suggested replies from your knowledge base", "Escalation summaries for human agents", "Customer satisfaction follow-ups"],
+    apps: ["Zendesk", "Intercom", "WhatsApp", "Slack", "Salesforce", "Claude AI"],
+  },
+  {
     id: "finance",
     title: "Finance",
     flows: ["Monthly P&L report generation", "Invoice reconciliation & alerts", "Budget variance weekly digest", "Expense approval summaries"],
