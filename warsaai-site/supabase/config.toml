@@ -1,1 +1,5 @@
 project_id = "kdjjbxqmglfluslkuroz"
+
+# Signed-in admins only: the function checks the session and the admin role itself.
+[functions.inquiry-assistant]
+verify_jwt = false

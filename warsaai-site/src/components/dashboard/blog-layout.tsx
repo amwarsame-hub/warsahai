@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { FileText, Home, PenSquare, User } from "lucide-react";
+import { FileText, Home, MessageSquareReply, PenSquare, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -100,6 +100,27 @@ const BlogLayout = ({ children, breadcrumbs }: BlogLayoutProps) => {
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                   ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+
+            <SidebarSeparator />
+
+            <SidebarGroup>
+              <SidebarGroupLabel>Inbox</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={location.pathname === "/dashboard/inquiries"}
+                    >
+                      <Link to="/dashboard/inquiries">
+                        <MessageSquareReply className="h-4 w-4" />
+                        <span>Inquiry Assistant</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
