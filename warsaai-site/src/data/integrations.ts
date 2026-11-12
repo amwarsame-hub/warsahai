@@ -20,7 +20,7 @@ import {
   ShieldCheck,
   SquareKanban,
   TrendingUp,
-  Twitter,
+  X,
   Users,
 } from "lucide-react";
 
@@ -49,7 +49,7 @@ export const socialPlatforms: NamedIcon[] = [
   { name: "Instagram", icon: Instagram },
   { name: "Facebook", icon: Facebook },
   { name: "TikTok", icon: Music2 },
-  { name: "X", icon: Twitter },
+  { name: "X", icon: X },
 ];
 
 export const departments: NamedIcon[] = [

@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import { InvoiceActions, InvoiceStatuses } from "@/components/illustrations/dashboards";
+import { InvoiceActions, InvoiceStatuses, WorkflowTrendChart } from "@/components/illustrations/dashboards";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -101,13 +101,8 @@ const CoreFeatures = () => {
             <AnimateOnView
               once
               delay={0.6}
-              className="max-w-[300px] md:max-w-[414px] w-full aspect-[414/309] md:absolute right-10 bottom-10 mt-10 md:mt-0">
-              <img
-                src="/images/homepage/core-feature-stat.webp"
-                alt="Automation preview"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              className="md:max-w-[414px] w-full md:absolute right-10 bottom-10 mt-10 md:mt-0">
+              <WorkflowTrendChart />
             </AnimateOnView>
           </AnimateOnView>
 

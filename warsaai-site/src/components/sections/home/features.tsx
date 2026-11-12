@@ -117,8 +117,8 @@ const Features = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement> | null }
 
   const x = useTransform(scrollYProgress, [0, 1], [offset.x, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [offset.y, 0]);
-  // Scale: start at 1.2, end at 1.0
-  const scale = useTransform(scrollYProgress, [0, 1], [3, 1]);
+  // The logo starts enlarged between the hero previews and settles into its card.
+  const scale = useTransform(scrollYProgress, [0, 1], [1.7, 1]);
 
   return (
     <section ref={sectionRef} className="md:pt-20 xl:pt-[100px] pt-12 md:pb-20 pb-12" id="features">
