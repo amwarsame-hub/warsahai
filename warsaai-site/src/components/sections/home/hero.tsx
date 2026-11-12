@@ -1,7 +1,9 @@
+import { CollaborationFeed, IntegrationsBoard } from "@/components/illustrations/dashboards";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { appConfig } from "@/utils/app-config";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Container from "../../container";
@@ -21,7 +23,7 @@ const Hero = ({ heroRef }: {
           </AnimateOnView>
           <AnimateOnView delay={0.1}>
             <Badge variant="color">
-              <span>Built by <span className="text-white">Ahmed Warsame</span> in London.</span>
+              <span>Built by <span className="text-white">{appConfig.name}</span></span>
             </Badge>
           </AnimateOnView>
         </StaggerContainer>
@@ -57,44 +59,14 @@ const Hero = ({ heroRef }: {
           </AnimateOnView>
         </StaggerContainer>
 
-        {/* 3D Visual Composition */}
-        <div className="relative flex justify-between xl:gap-10 gap-4 flex-wrap lg:flex-nowrap mt-[50px] xl:mt-24 max-w-[904px] mx-auto">
-          {/* Credit Card - Left */}
-          <div className="relative z-10">
-            <AnimateOnView
-              delay={0.6}
-              className={`relative sm:max-w-[395px] w-full aspect-[395/257] ${isMobile ? '' : 'animate-float'}`}
-              style={{ perspective: "1000px" }}
-            >
-              <img 
-                src="/images/homepage/credit-card.webp" 
-                alt="Template graphic — replace with your own product image" 
-                className="w-full h-full object-cover" 
-                width="395"
-                height="257"
-                fetchPriority="high"
-                loading="eager"
-              />
-            </AnimateOnView>
-          </div>
-
-          {/* Dashboard Widget - Right */}
-          <div className="relative z-10">
-            <AnimateOnView
-              delay={0.7}
-              className={`relative sm:max-w-[307px] w-full aspect-[307/137] ${isMobile ? '' : 'animate-float-slow'}`}
-            >
-              <img 
-                src="/images/homepage/hero-stat.webp" 
-                alt="Template graphic — replace with your own metric preview" 
-                className="w-full h-full object-cover" 
-                width="307"
-                height="137"
-                fetchPriority="high"
-                loading="eager"
-              />
-            </AnimateOnView>
-          </div>
+        {/* Product previews */}
+        <div className="relative flex flex-col items-center justify-between gap-6 md:flex-row md:items-start xl:gap-10 mt-[50px] xl:mt-24 max-w-[904px] mx-auto">
+          <AnimateOnView delay={0.6} className={`relative z-10 w-full max-w-[420px] ${isMobile ? "" : "animate-float"}`}>
+            <IntegrationsBoard limit={6} />
+          </AnimateOnView>
+          <AnimateOnView delay={0.7} className={`relative z-10 w-full max-w-[360px] ${isMobile ? "" : "animate-float-slow"}`}>
+            <CollaborationFeed />
+          </AnimateOnView>
         </div>
       </Container>
     </section>

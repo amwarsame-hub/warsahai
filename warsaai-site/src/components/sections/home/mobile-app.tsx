@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import { WorkflowStatusBoard } from "@/components/illustrations/dashboards";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
@@ -19,7 +20,7 @@ const MobileApp = () => {
   ];
 
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 bg-black" id="mobile-app">
+    <section className="md:py-20 xl:py-32 py-12 bg-black" id="mobile-app">
       <Container className="flex flex-col md:flex-row justify-between md:gap-10 xl:gap-2xl gap-8">
         <StaggerContainer
           className="flex flex-col lg:max-w-[507px] pg-[120px]"
@@ -104,16 +105,9 @@ const MobileApp = () => {
           once
           blur
           delay={0.6}
-          className="flex justify-center lg:justify-end"
+          className="flex w-full items-center justify-center lg:justify-end"
         >
-          <img 
-            className="relative max-w-[434px] w-full aspect-[434/645]" 
-            src="/images/homepage/phone.webp" 
-            alt="Mobile workflow preview" 
-            width="434"
-            height="645"
-            loading="lazy"
-          />
+          <WorkflowStatusBoard className="w-full max-w-[434px]" />
 
         </AnimateOnView>
       </Container>

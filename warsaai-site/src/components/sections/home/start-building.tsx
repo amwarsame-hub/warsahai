@@ -78,7 +78,7 @@ const StartBuilding = () => {
           </AnimateOnView>
 
           <p className="text-sm text-muted-foreground mt-5">
-            Built by Ahmed Warsame · 20 years in financial technology and operations
+            Built by {appConfig.name} · 20 years in financial technology and operations
           </p>
         </div>
       </Container>

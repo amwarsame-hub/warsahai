@@ -1,8 +1,11 @@
 import Container from "@/components/container";
+import { DepartmentHub, IconTileGrid } from "@/components/illustrations/dashboards";
+import { BuildOnceArt } from "@/components/illustrations/pillars";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { businessApps, emailApps, socialPlatforms } from "@/data/integrations";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -13,27 +16,41 @@ const features = [
     id: "build-once",
     title: "Build Once, Run Forever",
     description: "Custom AI agents are designed for set-it-and-forget-it reliability. Deploy once; the system runs, adapts and delivers results 24/7.",
-    image: "/images/features/tab-1.webp",
+    visual: <BuildOnceArt className="h-48" />,
   },
   {
     id: "cross-department-ai",
     title: "Cross-Department AI",
     description: "One intelligence layer connects Sales, Ops, Support, Legal and Finance. One AI brain that speaks every department’s language.",
-    image: "/images/features/tab-2.webp",
+    visual: <DepartmentHub />,
   },
   {
     id: "connect-any-app",
     title: "Connect Any App",
-    description: "Connect CRM, ERP and communications tools including Salesforce, Monday.com, Jira, Slack and Google Workspace.",
-    image: "/images/features/tab-3.webp",
+    description: "Connect CRM, ERP and communications tools including Salesforce, Monday.com, Jira, Slack and Google Workspace — plus email on Outlook, Gmail, Proton Mail and more.",
+    visual: (
+      <div className="w-full space-y-5">
+        <IconTileGrid items={businessApps} />
+        <div>
+          <p className="mb-3 text-sm font-semibold text-muted-foreground">Email</p>
+          <IconTileGrid items={emailApps} />
+        </div>
+      </div>
+    ),
   },
   {
     id: "social-automation",
     title: "Social Media Campaign & Automation",
     description: "Generate and schedule AI content, analyse performance, identify hashtags and trends, post across platforms, and automate DMs and comments.",
-    image: "/images/features/tab-4.webp",
+    visual: <IconTileGrid items={socialPlatforms} className="justify-center" />,
   },
 ];
+
+const FeatureVisual = ({ children }: { children: React.ReactNode }) => (
+  <div className="flex min-h-[260px] w-full items-center justify-center rounded-2xl bg-brand-sky/30 p-6 md:p-10">
+    {children}
+  </div>
+);
 
 const CoreFeatures = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -215,13 +232,7 @@ const CoreFeatures = () => {
                   <p className="mb-6 text-muted-foreground">
                     {features[activeFeature].description}
                   </p>
-                  <div className="rounded-2xl w-full overflow-hidden bg-muted aspect-[717/400] md:aspect-auto">
-                    <img
-                      src={features[activeFeature].image}
-                      alt={features[activeFeature].title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <FeatureVisual>{features[activeFeature].visual}</FeatureVisual>
                 </motion.div>
               </AnimatePresence>
             ) : (
@@ -247,13 +258,7 @@ const CoreFeatures = () => {
                     </AnimateOnView>
 
                     <AnimateOnView once delay={0.3}>
-                      <div className="rounded-2xl w-full max-w-[717px] overflow-hidden">
-                        <img
-                          src={feature.image}
-                          alt={feature.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                      <FeatureVisual>{feature.visual}</FeatureVisual>
                     </AnimateOnView>
                   </div>
                 </div>

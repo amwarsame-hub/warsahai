@@ -1,17 +1,10 @@
-import settlements from "@/assets/lottie/settled.json";
 import Container from "@/components/container";
+import { InvoiceActions, InvoiceStatuses } from "@/components/illustrations/dashboards";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import LottieComponent from "lottie-react";
-
-// The dev server's prebundled build hands back the module namespace instead of
-// the component, so unwrap it before rendering.
-type LottieType = typeof LottieComponent;
-const Lottie: LottieType =
-  (LottieComponent as unknown as { default?: LottieType }).default ?? LottieComponent;
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -129,18 +122,14 @@ const CoreFeatures = () => {
             >
               <Card className="h-full">
                 <CardHeader className="flex justify-center items-center md:py-16 py-4 md:px-8 px-4">
-                  <img
-                    src="/images/homepage/core-feature-control.webp"
-                    alt="Automation preview"
-                    className="w-full h-full object-cover max-w-[298px]"
-                    loading="lazy" />
+                  <InvoiceActions />
                 </CardHeader>
                 <CardContent className="mt-6 p-2 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Smart Money Controls
+                    Smart Invoice Controls
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Manage requests, transfers, top-ups, and bills with smart, secure, and real-time money control features.
+                    Create an invoice, send a request for invoice, and chase reminders — drafted, routed and tracked by your AI agents.
                   </p>
                 </CardContent>
               </Card>
@@ -153,21 +142,16 @@ const CoreFeatures = () => {
               className="lg:col-span-5 col-span-1"
             >
               <Card className="h-full p-0">
-                <CardHeader className="flex justify-center items-center">
-                  <div aria-hidden="true">
-                    <Lottie
-                      animationData={settlements}
-                      loop={true}
-                    />
-                  </div>
+                <CardHeader className="flex justify-center items-center md:py-16 py-4 md:px-8 px-4">
+                  <InvoiceStatuses />
                 </CardHeader>
                 <CardContent className="pt-6 pb-10 px-6 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Seamless Settlements
+                    Seamless Invoice Statuses
                   </h3>
 
                   <p className="text-muted-foreground leading-relaxed">
-                    Faster, reliable, and automated settlements with real-time tracking, global support.
+                    See every invoice at a glance — paid, pending, outstanding and aged — updated automatically as payments land.
                   </p>
                 </CardContent>
               </Card>

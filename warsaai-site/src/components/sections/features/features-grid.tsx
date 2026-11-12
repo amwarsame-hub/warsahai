@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import { AuditTrailArt, BuildOnceArt, ConnectAnyAppArt } from "@/components/illustrations/pillars";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 
@@ -7,19 +8,19 @@ const chartData = [
     icon: "/images/icons/shield-green.svg",
     title: "AI Strategy & Auditing",
     description: "Map workflows, analyse ROI and build a clear automation roadmap.",
-    image: "/images/features/chart-1.webp"
+    Art: AuditTrailArt
   },
   {
     icon: "/images/icons/timeline.svg",
     title: "Custom Implementation",
     description: "Build AI agents, integrate APIs and connect cross-app logic.",
-    image: "/images/features/chart-2.webp"
+    Art: ConnectAnyAppArt
   },
   {
     icon: "/images/icons/growth.svg",
     title: "Optimisation & Scaling",
     description: "Tune latency, score accuracy and design for scale.",
-    image: "/images/features/chart-3.webp"
+    Art: BuildOnceArt
   }
 ]
 
@@ -36,8 +37,8 @@ const FeaturesGrid = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {
-            chartData.map((item, index) => (
-              <AnimateOnView once y={40} delay={0.2}>
+            chartData.map((item) => (
+              <AnimateOnView key={item.title} once y={40} delay={0.2}>
                 <Card className="h-full border-border border overflow-hidden shadow-sm p-0">
                   <CardContent className="p-0">
                     <div className="p-6">
@@ -53,11 +54,8 @@ const FeaturesGrid = () => {
                         {item.description}
                       </p>
                     </div>
-                    <div className="flex justify-end">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="aspect-[379/352] max-w-[379px] w-full h-full object-cover" />
+                    <div className="mx-6 mb-6 flex h-56 items-center justify-center rounded-2xl bg-brand-sky/30 p-6">
+                      <item.Art />
                     </div>
 
                   </CardContent>
