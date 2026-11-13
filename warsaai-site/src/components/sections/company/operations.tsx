@@ -79,7 +79,11 @@ const css = `
   .wa-btn::after{content:"";position:absolute;top:0;left:-50%;width:35%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);
     transform:skewX(-20deg);animation:wa-sweep 3.5s ease-in-out infinite}
   .wa-btn:hover{box-shadow:0 10px 24px -8px rgba(37,99,235,.7);transform:translateY(-1px)}
-  .wa-swap small{font-size:11px;color:#94a3b8;text-align:center}
+  .wa-card__head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:20px}
+  .wa-card__head h3{margin:0}
+  .wa-sample{font-size:12px;font-weight:600;line-height:1;color:var(--wa-slate);background:#fff;border:1px solid var(--wa-line);
+    padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .wa-swap .wa-note{font-size:12px;line-height:1.5;color:var(--wa-slate);margin:4px 2px}
 
   .wa-globe svg{position:absolute;left:50%;top:50%;width:178px;height:178px;transform:translate(-42%,-50%);overflow:visible}
   .wa-globe .g{fill:none;stroke:var(--wa-blue);stroke-width:.9;opacity:.75}
@@ -226,11 +230,14 @@ const Operations = () => {
 
           {/* Card 2 */}
           <article className="wa-card">
-            <h3>Manual → Automated</h3>
+            <div className="wa-card__head">
+              <h3>Manual → Automated</h3>
+              <span className="wa-sample">Sample data</span>
+            </div>
             <div className="wa-visual wa-swap">
               <div className="wa-row">
                 <div className="wa-row__top">
-                  <div><span>Manual tasks</span><strong><b data-count="1240">1,240</b> / month</strong></div>
+                  <div><span>Manual tasks</span><strong><b data-count="1240">1,240</b> / month*</strong></div>
                   <div className="wa-right"><span>Reduced</span><em className="wa-pill down">↓ <b data-count="82">82</b>%</em></div>
                 </div>
                 <div className="wa-bar slate"><b style={vars({ "--w": "18%" })} /></div>
@@ -242,13 +249,15 @@ const Operations = () => {
               </div>
               <div className="wa-row">
                 <div className="wa-row__top">
-                  <div><span>Hours saved</span><strong><b data-count="310">310</b> hrs / month</strong></div>
-                  <div className="wa-right"><span>Increase</span><em className="wa-pill up">↑ <b data-count="38">38</b>%</em></div>
+                  <div><span>Hours saved</span><strong><b data-count="310">310</b> hrs / month*</strong></div>
+                  <div className="wa-right"><span>Time freed</span><em className="wa-pill up">~25%</em></div>
                 </div>
                 <div className="wa-bar"><b style={vars({ "--w": "82%" })} /></div>
               </div>
+              <p className="wa-note">
+                *Illustrative figures only, not results from a real client. Your savings will depend on your processes, volumes and systems.
+              </p>
               <Link className="wa-btn" to="/contact">Automate a workflow</Link>
-              <small>Example results</small>
             </div>
             <p>Turn repetitive admin like triage, routing, updates and reporting into workflows that run on their own.</p>
           </article>

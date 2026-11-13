@@ -1,5 +1,6 @@
 import Container from "@/components/container";
 import Layout from "@/components/layout";
+import AutomationDisclaimer from "@/components/sections/legal/automation-disclaimer";
 import LegalHero from "@/components/sections/legal/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
@@ -33,6 +34,7 @@ const TermsAndConditionPage = () => {
                     <Container className="flex flex-col lg:flex-row justify-center md:gap-10 gap-6 py-[60px]">
                         {/* Main Content Column */}
                         <article className="max-w-[1030px] prose prose-lg">
+                            <AutomationDisclaimer />
                             <p className="lead text-xl text-muted-foreground mb-8">
                                 In the rapidly evolving landscape of digital commerce, payment gateways have emerged as the unsung heroes, silently powering the transactions that drive the global economy.
                             </p>
