@@ -28,10 +28,16 @@ const Hero = ({ heroRef }: {
           </AnimateOnView>
         </StaggerContainer>
 
-        <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
+        <AnimateOnView blur className="text-center max-w-3xl mx-auto md:mb-6 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
             Intelligent Ecosystems That Work While You Sleep
           </h1>
+        </AnimateOnView>
+
+        <AnimateOnView className="text-center max-w-2xl mx-auto lg:mb-10 md:mb-8 mb-6" delay={0.3}>
+          <p className="text-lg text-muted">
+            We design and build custom AI agents that connect the tools you already use, from CRM to finance to support, so routine work runs itself.
+          </p>
         </AnimateOnView>
 
         <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -47,13 +53,6 @@ const Hero = ({ heroRef }: {
             <Button variant="outline" asChild className="border-white/25 text-white hover:bg-white/10">
               <Link to="/pricing">
                 See Services &amp; Pricing
-              </Link>
-            </Button>
-          </AnimateOnView>
-          <AnimateOnView delay={0.6}>
-            <Button variant="link" asChild>
-              <Link to="/features">
-                Explore AI Services
               </Link>
             </Button>
           </AnimateOnView>

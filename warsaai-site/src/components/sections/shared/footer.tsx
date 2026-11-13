@@ -27,7 +27,7 @@ const Footer = () => {
     <footer className="relative bg-black text-white pt-36 pb-8 overflow-hidden">
       {/* Grid Pattern Background */}
       <div className="absolute bottom-0 left-0 pointer-events-none w-[533px] h-[601px] z-10">
-        <img src="/images/common/footer-pattern.svg" alt="pattern" />
+        <img src="/images/common/footer-pattern.svg" alt="" />
       </div>
 
       <Container className="relative z-20">
@@ -47,7 +47,7 @@ const Footer = () => {
 
             <div className="space-y-2.5">
               <p className="text-white">
-                Head Quarter:
+                Headquarters:
               </p>
               <p className="text-muted">
                 London, <br />United Kingdom
@@ -124,7 +124,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} WarsaAi. Made in Lovable.
+              © {new Date().getFullYear()} WarsaAi. All rights reserved.
             </p>
 
             {/* Legal Links */}
@@ -140,12 +140,6 @@ const Footer = () => {
                 className="text-sm text-muted-foreground hover:text-white transition-colors"
               >
                 Terms &amp; Conditions
-              </Link>
-              <Link
-                to="/login"
-                className="text-sm text-muted-foreground hover:text-white transition-colors"
-              >
-                Admin
               </Link>
             </div>
           </div>

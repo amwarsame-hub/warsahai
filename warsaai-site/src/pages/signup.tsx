@@ -56,8 +56,8 @@ const SignUp = () => {
         if (error) {
             toast.error(error.message);
         } else {
-            toast.success("Account created successfully!");
-            navigate("/dashboard/profile");
+            toast.success("Almost there. Check your inbox and confirm your email to finish signing up.", { duration: 10000 });
+            navigate("/login");
         }
     };
 

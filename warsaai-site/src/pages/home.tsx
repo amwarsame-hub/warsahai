@@ -16,7 +16,6 @@ const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const Pillars = lazy(() => import("@/components/sections/home/pillars"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const StartBuilding = lazy(() => import("@/components/sections/home/start-building"));
-const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -30,8 +29,6 @@ const Home = () => {
     "url": appConfig.url,
     "logo": `${appConfig.url}${appConfig.logo}`,
     "image": appConfig.ogImage,
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, iOS, Android",
     "areaServed": "Worldwide",
     "serviceType": "AI Strategy and Implementation",
     "knowsAbout": [
@@ -59,6 +56,9 @@ const Home = () => {
           <Pillars />
         </Suspense>
         <Suspense fallback={null}>
+          <CEOProfile />
+        </Suspense>
+        <Suspense fallback={null}>
           <CoreFeatures />
         </Suspense>
         <Suspense fallback={null}>
@@ -78,12 +78,6 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <StartBuilding />
-        </Suspense>
-        <Suspense fallback={null}>
-          <CEOProfile />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Testimonials />
         </Suspense>
         <Suspense fallback={null}>
           <Blog />

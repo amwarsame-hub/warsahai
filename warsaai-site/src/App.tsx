@@ -14,6 +14,7 @@ import Contact from "./pages/contact";
 import ProfileSettings from "./pages/dashboard/profile";
 import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
+import InquiryAssistant from "./pages/dashboard/inquiries";
 import Academy from "./pages/academy";
 import Features from "./pages/features";
 import Home from "./pages/home";
@@ -96,6 +97,14 @@ const App = () => (
                 element={
                   <AdminGuard>
                     <BlogEditor />
+                  </AdminGuard>
+                }
+              />
+              <Route
+                path="/dashboard/inquiries"
+                element={
+                  <AdminGuard>
+                    <InquiryAssistant />
                   </AdminGuard>
                 }
               />

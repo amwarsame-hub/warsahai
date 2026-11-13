@@ -121,10 +121,10 @@ const CoreFeatures = () => {
                 </CardHeader>
                 <CardContent className="mt-6 p-2 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Smart Invoice Controls
+                    Example: an invoicing agent
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Create an invoice, send a request for invoice, and chase reminders — drafted, routed and tracked by your AI agents.
+                    One of the workflows we build for finance teams: the agent drafts invoices, sends requests and chases reminders, so nobody has to.
                   </p>
                 </CardContent>
               </Card>
@@ -142,11 +142,11 @@ const CoreFeatures = () => {
                 </CardHeader>
                 <CardContent className="pt-6 pb-10 px-6 max-w-[420px]">
                   <h3 className="h5 mb-2">
-                    Seamless Invoice Statuses
+                    Example: live status tracking
                   </h3>
 
                   <p className="text-muted-foreground leading-relaxed">
-                    See every invoice at a glance — paid, pending, outstanding and aged — updated automatically as payments land.
+                    Paid, pending, outstanding and aged: every item updates automatically as payments land, with no manual chasing.
                   </p>
                 </CardContent>
               </Card>

@@ -1,6 +1,6 @@
 "use client";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { LogOut, Menu, User, XIcon, FileText } from "lucide-react";
+import { LogOut, Menu, MessageSquareReply, User, XIcon, FileText } from "lucide-react";
 
 import React from "react";
 
@@ -119,6 +119,12 @@ const Navbar = () => {
                         Blog Dashboard
                       </Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                      <Link to="/dashboard/inquiries" className="flex items-center">
+                        <MessageSquareReply className="mr-2 h-4 w-4" />
+                        Inquiry Assistant
+                      </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-white/10" />
                   </>
                 )}
@@ -175,7 +181,7 @@ const Navbar = () => {
                     ))}
                     {!user && (
                       <Button asChild variant="gray" size="default" className="mt-4 w-full">
-                        <Link to="/signup" onClick={closeSheet}>Get Started</Link>
+                        <Link to="/contact" onClick={closeSheet}>Book an Efficiency Audit</Link>
                       </Button>
                     )}
                   </div>
@@ -228,6 +234,12 @@ const Navbar = () => {
                         Blog Dashboard
                       </Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="text-white hover:bg-white/10 cursor-pointer">
+                      <Link to="/dashboard/inquiries" className="flex items-center">
+                        <MessageSquareReply className="mr-2 h-4 w-4" />
+                        Inquiry Assistant
+                      </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-white/10" />
                   </>
                 )}
@@ -246,7 +258,7 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <Button asChild variant="gray" size="default">
-              <Link to="/signup">Get Started</Link>
+              <Link to="/contact" className="whitespace-nowrap">Book an Efficiency Audit</Link>
             </Button>
           )}
         </div>

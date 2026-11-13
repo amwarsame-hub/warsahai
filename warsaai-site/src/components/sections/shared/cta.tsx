@@ -32,7 +32,7 @@ const CTA = () => {
                     >
                         <Button asChild>
                             <Link to="/contact">
-                                Get Started for Free
+                                Book an Efficiency Audit
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </Button>

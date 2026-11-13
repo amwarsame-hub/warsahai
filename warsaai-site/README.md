@@ -30,6 +30,7 @@ Build for production with `npm run build` — output lands in `dist/`.
 | `/legal/*` | Terms, privacy, cookie policy |
 | `/login`, `/signup`, `/forgot-password` | Account pages |
 | `/dashboard/*` | Profile settings and the blog editor (admin only) |
+| `/dashboard/inquiries` | Inquiry Assistant — paste a visitor's message, get a category and a draft reply (admin only) |
 
 ## Rebranding it for another site
 
@@ -52,6 +53,14 @@ rather than hardcoded colours, so changing a token updates every page at once.
 Posts are stored in the `blog_posts` table and edited in the dashboard at
 `/dashboard/blog`. Only rows with `status = "published"` appear on the public site.
 The table ships empty — publish your first post from the dashboard.
+
+## Inquiry Assistant
+
+`/dashboard/inquiries` calls the `inquiry-assistant` edge function
+(`supabase/functions/inquiry-assistant`), which checks the caller is an admin and then
+asks a model through the Lovable AI Gateway to categorise the message and draft a reply.
+It uses the project's built-in `LOVABLE_API_KEY`; set an `INQUIRY_AI_MODEL` secret to
+change the model. Messages are not stored and replies are never sent automatically.
 
 ## Logo and favicon
 

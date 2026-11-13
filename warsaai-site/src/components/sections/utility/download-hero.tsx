@@ -19,7 +19,7 @@ const DownloadHero = () => {
                         <Button asChild>
                             <Link to="/contact">
                                 <img src="/images/common/revio-signup.svg" alt="Apple" loading="lazy"/>
-                                Get Started for Free
+                                Book an Efficiency Audit
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="text-white">
