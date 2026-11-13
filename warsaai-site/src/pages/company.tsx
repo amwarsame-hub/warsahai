@@ -10,7 +10,7 @@ import Vision from "@/components/sections/company/vision";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
 import { lazy, Suspense } from "react";
-const Values = lazy(() => import("@/components/sections/company/values"));
+const Operations = lazy(() => import("@/components/sections/company/operations"));
 
 const CompanyPage = () => {
 
@@ -35,7 +35,7 @@ const CompanyPage = () => {
                 <CompanyHero />
                 <HeroImage />
                 <Suspense fallback={null}>
-                    <Values />
+                    <Operations />
                 </Suspense>
                 <Suspense fallback={null}>
                     <Vision />

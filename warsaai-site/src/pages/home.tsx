@@ -13,7 +13,6 @@ const CoreFeatures = lazy(() => import("@/components/sections/home/core-features
 const Explore = lazy(() => import("@/components/sections/home/explore"));
 const Integrations = lazy(() => import("@/components/sections/home/integrations"));
 const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
-const Operations = lazy(() => import("@/components/sections/home/operations"));
 const Pillars = lazy(() => import("@/components/sections/home/pillars"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const StartBuilding = lazy(() => import("@/components/sections/home/start-building"));
@@ -58,9 +57,6 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <CEOProfile />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Operations />
         </Suspense>
         <Suspense fallback={null}>
           <CoreFeatures />
