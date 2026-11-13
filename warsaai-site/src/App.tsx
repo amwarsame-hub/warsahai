@@ -20,6 +20,7 @@ import Features from "./pages/features";
 import Home from "./pages/home";
 import CookiePolicyPage from "./pages/legal/cookie-policy";
 import PrivacyPolicyPage from "./pages/legal/privacy-&-policy";
+import SecurityPage from "./pages/legal/security";
 import TermsAndConditionPage from "./pages/legal/terms-&-condition";
 import Login from "./pages/login";
 import ForgotPassword from "./pages/forgot-password";
@@ -63,6 +64,7 @@ const App = () => (
               <Route path="/terms-&-condition" element={<TermsAndConditionPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/security" element={<SecurityPage />} />
               <Route path="/download" element={<DownloadPage />} />
               <Route path="/coming-soon" element={<ComingSoonPage />} />
               <Route path="/login" element={<Login />} />

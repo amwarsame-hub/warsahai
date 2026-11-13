@@ -1,11 +1,9 @@
 /**
- * Shared body of the Terms & Conditions and Privacy & Policy pages.
+ * Body of the Security & Confidentiality page.
  * Rendered inside a `prose` article.
  */
 const LegalContent = () => (
     <>
-        <h2>Terms, Privacy &amp; Confidentiality Disclaimer</h2>
-
         <h3>1. Introduction &amp; Scope</h3>
         <p>
             At WarsaAi, we deliver cutting-edge technology solutions, automated workflows, and advanced AI

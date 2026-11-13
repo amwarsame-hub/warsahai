@@ -1,6 +1,6 @@
 import Container from "@/components/container";
 import Layout from "@/components/layout";
-import LegalContent from "@/components/sections/legal/legal-content";
+import PrivacyContent from "@/components/sections/legal/privacy-content";
 import LegalHero from "@/components/sections/legal/hero";
 import SEO from "@/components/seo";
 import { appConfig } from "@/utils/app-config";
@@ -33,7 +33,7 @@ const PrivacyPolicyPage = () => {
                     <Container className="flex flex-col lg:flex-row justify-center md:gap-10 gap-6 py-[60px]">
                         {/* Main Content Column */}
                         <article className="max-w-[1030px] prose prose-lg">
-                            <LegalContent />
+                            <PrivacyContent />
                         </article>
                     </Container>
                 </section>

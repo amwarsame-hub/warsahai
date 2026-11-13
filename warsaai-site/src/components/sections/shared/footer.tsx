@@ -141,6 +141,18 @@ const Footer = () => {
               >
                 Terms &amp; Conditions
               </Link>
+              <Link
+                to="/cookie-policy"
+                className="text-sm text-muted-foreground hover:text-white transition-colors"
+              >
+                Cookie Policy
+              </Link>
+              <Link
+                to="/security"
+                className="text-sm text-muted-foreground hover:text-white transition-colors"
+              >
+                Security &amp; Confidentiality
+              </Link>
             </div>
           </div>
         </AnimateOnView>
