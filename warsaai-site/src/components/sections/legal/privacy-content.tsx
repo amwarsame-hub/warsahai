@@ -1,5 +1,6 @@
 import { appConfig } from "@/utils/app-config";
 import { Link } from "react-router-dom";
+import AiImplementations from "@/components/sections/legal/ai-implementations";
 
 /** Body of the Privacy Policy page. Rendered inside a `prose` article. */
 const PrivacyContent = () => {
@@ -51,7 +52,9 @@ const PrivacyContent = () => {
                 it to us.
             </p>
 
-            <h3>3. How we use your data and our lawful basis</h3>
+            <AiImplementations sectionNumber={3} />
+
+            <h3>4. How we use your data and our lawful basis</h3>
             <div className="overflow-x-auto">
                 <table>
                     <thead>
@@ -98,7 +101,7 @@ const PrivacyContent = () => {
                 legal or similarly significant effects.
             </p>
 
-            <h3>4. Cookies and similar technologies</h3>
+            <h3>5. Cookies and similar technologies</h3>
             <ul>
                 <li>We do not use analytics or advertising cookies.</li>
                 <li>
@@ -117,7 +120,7 @@ const PrivacyContent = () => {
                 See our <Link to="/cookie-policy">Cookie Policy</Link> for more detail.
             </p>
 
-            <h3>5. Who we share your data with</h3>
+            <h3>6. Who we share your data with</h3>
             <p>We use these service providers, who process data on our instructions:</p>
             <ul>
                 <li><strong>Lovable (Lovable Cloud, built on Supabase):</strong> account database and sign-in.</li>
@@ -140,7 +143,7 @@ const PrivacyContent = () => {
                 Agreement or UK Addendum to the EU Standard Contractual Clauses.
             </p>
 
-            <h3>6. How long we keep your data</h3>
+            <h3>7. How long we keep your data</h3>
             <ul>
                 <li>
                     <strong>Account data:</strong> for as long as your account is open, then deleted within 30 days of
@@ -159,14 +162,14 @@ const PrivacyContent = () => {
                 </li>
             </ul>
 
-            <h3>7. How we protect your data</h3>
+            <h3>8. How we protect your data</h3>
             <p>
                 We use encrypted connections (HTTPS) across the website, restrict access to personal data to those who
                 need it, and use reputable providers for hosting and storage. No system is completely secure. If a
                 breach is likely to put your rights at risk, we will tell you and the ICO as the law requires.
             </p>
 
-            <h3>8. Your rights</h3>
+            <h3>9. Your rights</h3>
             <p>Under UK data protection law you can ask us to:</p>
             <ul>
                 <li>give you a copy of your data;</li>
@@ -186,7 +189,7 @@ const PrivacyContent = () => {
                 1113. We would appreciate the chance to put things right first.
             </p>
 
-            <h3>9. Client data</h3>
+            <h3>10. Client data</h3>
             <p>
                 When we build or run AI systems for a client, we may handle personal data that belongs to that
                 client’s customers or staff. In that case the client is the controller and we act as their processor,
@@ -194,13 +197,13 @@ const PrivacyContent = () => {
                 concerned.
             </p>
 
-            <h3>10. Children</h3>
+            <h3>11. Children</h3>
             <p>
                 Our website and services are for businesses and adults. We do not knowingly collect data from anyone
                 under 18.
             </p>
 
-            <h3>11. Changes to this policy</h3>
+            <h3>12. Changes to this policy</h3>
             <p>
                 We will post any changes on this page and update the date at the top. If a change is significant, we
                 will tell account holders by email.

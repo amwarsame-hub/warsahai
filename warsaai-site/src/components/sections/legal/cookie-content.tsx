@@ -1,5 +1,6 @@
 import { appConfig } from "@/utils/app-config";
 import { Link } from "react-router-dom";
+import AiImplementations from "@/components/sections/legal/ai-implementations";
 
 /** Body of the Cookie Policy page. Rendered inside a `prose` article. */
 const CookieContent = () => {
@@ -40,13 +41,15 @@ const CookieContent = () => {
                 </li>
             </ul>
 
-            <h3>3. Your choices</h3>
+            <AiImplementations sectionNumber={3} />
+
+            <h3>4. Your choices</h3>
             <p>
                 You can clear or block cookies and local storage in your browser settings. If you block local storage,
                 you will not be able to stay signed in.
             </p>
 
-            <h3>4. More information</h3>
+            <h3>5. More information</h3>
             <p>
                 Our <Link to="/privacy-policy">Privacy Policy</Link> explains how we use personal data. Questions:{" "}
                 <a href={`mailto:${email}`}>{email}</a>.

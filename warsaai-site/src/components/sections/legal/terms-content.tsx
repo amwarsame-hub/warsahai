@@ -1,5 +1,6 @@
 import { appConfig } from "@/utils/app-config";
 import { Link } from "react-router-dom";
+import AiImplementations from "@/components/sections/legal/ai-implementations";
 
 /** Body of the Terms & Conditions page. Rendered inside a `prose` article. */
 const TermsContent = () => {
@@ -23,7 +24,9 @@ const TermsContent = () => {
                 version in force is the one on this page when you visit.
             </p>
 
-            <h3>3. Using the website</h3>
+            <AiImplementations sectionNumber={3} />
+
+            <h3>4. Using the website</h3>
             <p>You may use the website for lawful purposes only. You must not:</p>
             <ul>
                 <li>try to gain unauthorised access to the website, its servers or any account;</li>
@@ -38,7 +41,7 @@ const TermsContent = () => {
                 change any part of it without notice.
             </p>
 
-            <h3>4. Accounts</h3>
+            <h3>5. Accounts</h3>
             <p>
                 If you create an account, you must give accurate information, keep your password confidential and tell
                 us promptly if you think someone else has used your account. You are responsible for activity under
@@ -46,7 +49,7 @@ const TermsContent = () => {
                 at any time by contacting us.
             </p>
 
-            <h3>5. Academy, prompt library and other learning content</h3>
+            <h3>6. Academy, prompt library and other learning content</h3>
             <p>
                 We make guides, prompts, workflows and session materials available on the website. You may use them
                 for your own learning and within your own business. You must not sell them, republish them or present
@@ -59,10 +62,10 @@ const TermsContent = () => {
                 exercises you will need your own subscription to the relevant product, on that provider’s terms.
             </p>
 
-            <h3>6. Intellectual property</h3>
+            <h3>7. Intellectual property</h3>
             <p>
                 We own, or have the right to use, the content and design of this website, including text, graphics,
-                the WarsaAi name and logo. All rights are reserved except as set out in section 5.
+                the WarsaAi name and logo. All rights are reserved except as set out in section 6.
             </p>
             <p>
                 Other companies’ names and logos shown on the website belong to their owners. They are shown to
@@ -70,7 +73,7 @@ const TermsContent = () => {
                 endorse or are affiliated with WarsaAi.
             </p>
 
-            <h3>7. Figures and examples on the website</h3>
+            <h3>8. Figures and examples on the website</h3>
             <p>
                 Time, cost, efficiency and risk-reduction figures on the website are illustrative examples. They are
                 not results achieved for a particular client and are not a promise of what you will achieve. See the
@@ -79,7 +82,7 @@ const TermsContent = () => {
                 to your business will be given in writing as part of a scoping exercise.
             </p>
 
-            <h3>8. Our services</h3>
+            <h3>9. Our services</h3>
             <p>
                 The website describes services such as AI strategy and audits, custom implementation and training.
                 Nothing on the website is an offer capable of acceptance. Any paid work is carried out under a
@@ -92,13 +95,13 @@ const TermsContent = () => {
                 arrangements by email. Either of us may cancel or rearrange with reasonable notice.
             </p>
 
-            <h3>9. AI-generated output</h3>
+            <h3>10. AI-generated output</h3>
             <p>
                 Some of our work and content is produced with the help of AI tools. AI output can contain errors. You
                 are responsible for checking any output before you rely on it or use it in your business.
             </p>
 
-            <h3>10. Our liability</h3>
+            <h3>11. Our liability</h3>
             <p>
                 Nothing in these terms excludes or limits our liability for death or personal injury caused by our
                 negligence, for fraud or fraudulent misrepresentation, or for anything else that cannot be excluded or
@@ -127,34 +130,34 @@ const TermsContent = () => {
                 </li>
                 <li>nothing in these terms affects your legal rights as a consumer.</li>
             </ul>
-            <p>Liability for paid services is governed by the separate agreement described in section 8.</p>
+            <p>Liability for paid services is governed by the separate agreement described in section 9.</p>
 
-            <h3>11. Links to other websites</h3>
+            <h3>12. Links to other websites</h3>
             <p>
                 The website contains links to other sites and resources. We provide them for information only. We have
                 no control over their content and are not responsible for it.
             </p>
 
-            <h3>12. Privacy</h3>
+            <h3>13. Privacy</h3>
             <p>
                 Our <Link to="/privacy-policy">Privacy Policy</Link> explains how we use personal data.
             </p>
 
-            <h3>13. General</h3>
+            <h3>14. General</h3>
             <p>
                 If a court finds part of these terms unenforceable, the rest continue to apply. If we do not enforce a
                 right straight away, we can still enforce it later. These terms are between you and us; no one else
                 has rights under them.
             </p>
 
-            <h3>14. Governing law</h3>
+            <h3>15. Governing law</h3>
             <p>
                 These terms are governed by the law of England and Wales. If you are a business, the courts of England
                 and Wales have exclusive jurisdiction. If you are a consumer living in Scotland or Northern Ireland,
                 you may also bring proceedings in your home courts.
             </p>
 
-            <h3>15. Contact</h3>
+            <h3>16. Contact</h3>
             <p>
                 Questions about these terms: <a href={`mailto:${email}`}>{email}</a>.
             </p>

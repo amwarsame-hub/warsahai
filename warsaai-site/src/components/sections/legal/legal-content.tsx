@@ -1,3 +1,5 @@
+import AiImplementations from "@/components/sections/legal/ai-implementations";
+
 /**
  * Body of the Security & Confidentiality page.
  * Rendered inside a `prose` article.
@@ -13,25 +15,7 @@ const LegalContent = () => (
             information.
         </p>
 
-        <h3>2. AI Implementations &amp; Operational Integrity</h3>
-        <ul>
-            <li>
-                <strong>Responsible AI Deployment:</strong> All artificial intelligence models, machine learning
-                pipelines, and automated systems deployed by WarsaAi are engineered to adhere to strict ethical and
-                operational boundaries.
-            </li>
-            <li>
-                <strong>Model Isolation &amp; No Cross-Contamination:</strong> Client data processed via our AI
-                implementations is strictly segregated. We do not use proprietary client datasets, operational logs,
-                or confidential inputs to train public-facing or multi-tenant foundational models without explicit,
-                written consent.
-            </li>
-            <li>
-                <strong>Transparency &amp; Control:</strong> We maintain clear oversight over algorithmic outputs,
-                ensuring that our AI-driven solutions act as secure, reliable catalysts for your digital
-                infrastructure.
-            </li>
-        </ul>
+        <AiImplementations sectionNumber={2} />
 
         <h3>3. Data Protection, GDPR &amp; Regulatory Compliance</h3>
         <p>
