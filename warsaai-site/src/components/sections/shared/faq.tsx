@@ -11,6 +11,15 @@ const linkClass = "underline underline-offset-4 hover:text-foreground";
 
 const faqs: { question: string; answer: ReactNode }[] = [
   {
+    question: "What is WarsaAi?",
+    answer: (
+      <p>
+        WarsaAi is a London-based AI studio. We help businesses save time by automating manual work, building custom
+        AI agents and connecting the tools you already use.
+      </p>
+    ),
+  },
+  {
     question: "How does an engagement start?",
     answer: (
       <p>
