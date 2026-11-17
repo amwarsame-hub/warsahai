@@ -4,40 +4,116 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { ArrowRight } from "lucide-react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-const faqs = [
-  {
-    question: "What is WarsaAi?",
-    answer: "WarsaAi is Ahmed Warsame's AI studio in London. It maps manual workflows, builds custom AI agents and integrations, and connects your existing apps so AI carries the operational load across departments.",
-  },
+const linkClass = "underline underline-offset-4 hover:text-foreground";
+
+const faqs: { question: string; answer: ReactNode }[] = [
   {
     question: "How does an engagement start?",
-    answer: "With an efficiency audit. WarsaAi maps the manual work, assesses ROI, and agrees a practical automation roadmap before anything is built.",
+    answer: (
+      <p>
+        It all starts with a friendly, no-pressure conversation. We take the time to listen and understand your goals,
+        your current challenges and what success looks like for you. Together, we'll shape the approach that fits your
+        business best, and we'll guide you through every next step clearly and simply, with no unnecessary jargon or
+        complexity.
+      </p>
+    ),
   },
   {
     question: "Which tools can WarsaAi connect?",
-    answer: "CRM, ERP and comms tools including Salesforce, Monday.com, Jira, Slack and Google Workspace, through custom integrations and cross-app logic.",
+    answer: (
+      <p>
+        We can connect almost any tool that supports secure integration with AI and automation, always in a way that's
+        safe and compliant with your business guidelines. This includes CRM, ERP and communication tools such as
+        Salesforce, Monday.com, Jira, Slack and Google Workspace. Through custom integrations and cross-app logic, we
+        help your tools work together seamlessly, so your team spends less time switching between systems.
+      </p>
+    ),
   },
   {
-    question: "What are the service offerings?",
-    answer: "AI Strategy & Auditing, Custom Implementation, Optimisation & Scaling, and Social Media Campaign & Automation.",
+    question: "What services do you offer?",
+    answer: (
+      <>
+        <p>Our core services are:</p>
+        <ul className="list-disc pl-5 my-3 space-y-1">
+          <li>AI Strategy &amp; Auditing</li>
+          <li>Custom Implementation</li>
+          <li>Optimisation &amp; Scaling</li>
+          <li>Social Media Campaigns &amp; Automation</li>
+        </ul>
+        <p>
+          You can find more details on our{" "}
+          <Link to="/features" className={linkClass}>
+            Services page
+          </Link>
+          . Don't see exactly what you need? Just let us know. We're always happy to talk through a custom solution
+          built around you.
+        </p>
+      </>
+    ),
   },
   {
     question: "Do you build agents from scratch?",
-    answer: "WarsaAi builds custom AI agents designed for set-it-and-forget-it reliability, then refines them with latency tuning, accuracy scoring and scale architecture as your requirements evolve.",
+    answer: (
+      <>
+        <p>
+          Yes, we do. WarsaAi designs and builds custom AI agents around your specific needs, made to run reliably day to
+          day, with ongoing maintenance and support included. As your business grows and your needs change, we keep
+          refining your agents through latency tuning, accuracy scoring and scalable architecture, so they keep up with
+          you.
+        </p>
+        <p className="mt-3">
+          Already have AI agents or automations in place? We can help with those too. We'll review what you have,
+          improve how it performs, and extend or rebuild it where needed, so you get more value from the investment
+          you've already made.
+        </p>
+      </>
+    ),
   },
   {
     question: "Who is WarsaAi for?",
-    answer: "All businesses and all departments. Entrepreneurs and connected departments - IT, Sales, Ops, Support, Legal and Finance - that want to stop trading time for money.",
+    answer: (
+      <p>
+        WarsaAi is for businesses of every size and every department. Whether you're an entrepreneur or part of a team
+        in IT, Sales, Operations, Support, Legal or Finance, we help you spend less time on repetitive work and more time
+        on what really matters to you and your customers.
+      </p>
+    ),
   },
   {
     question: "How do I get started?",
-    answer: "Book an efficiency audit with Ahmed directly: ahmed@warsaai.com, +44 7450 209184, London, UK.",
+    answer: (
+      <>
+        <p>Getting started is easy. Book an efficiency audit with us and we'll take it from there:</p>
+        <ul className="list-disc pl-5 mt-3 space-y-1">
+          <li>
+            Email:{" "}
+            <a href="mailto:inquiry@warsaai.com" className={linkClass}>
+              inquiry@warsaai.com
+            </a>
+          </li>
+          <li>
+            Phone:{" "}
+            <a href="tel:+447450209184" className={linkClass}>
+              +44 7450 209184
+            </a>
+          </li>
+          <li>Location: London, UK</li>
+        </ul>
+      </>
+    ),
   },
   {
-    question: "Is there training?",
-    answer: "Yes. WarsaAi runs 'From Zero to Pro with Claude AI', a 12-module course with 100+ prompts, live Saturday sessions, and free videos and guides.",
+    question: "Is there training available?",
+    answer: (
+      <p>
+        Yes! We run "From Zero to Pro with Claude AI", a 12-module course with 100+ ready-to-use prompts, live Saturday
+        sessions and free videos and guides. It's designed for every level, so whether you're brand new to AI or looking
+        to sharpen your skills, you'll feel right at home.
+      </p>
+    ),
   },
 ];
 
