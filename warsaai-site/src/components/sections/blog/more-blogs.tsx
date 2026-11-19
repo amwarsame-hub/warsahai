@@ -5,9 +5,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useRelatedPosts } from "@/hooks/use-blog";
 import { useParams } from "react-router-dom";
 
-const MoreBlogs = () => {
+interface MoreBlogsProps {
+  /** Article to leave out (defaults to the one in the URL). */
+  excludeSlug?: string;
+  title?: string;
+  limit?: number;
+}
+
+const MoreBlogs = ({ excludeSlug, title = "Explore more AI insights", limit = 3 }: MoreBlogsProps) => {
   const { slug } = useParams();
-  const { data: relatedPosts = [], isLoading } = useRelatedPosts(slug || "", 3);
+  const { data: relatedPosts = [], isLoading } = useRelatedPosts(excludeSlug || slug || "", limit);
 
   // Nothing else to read yet: hide the section instead of showing an empty heading.
   if (!isLoading && relatedPosts.length === 0) return null;
@@ -17,7 +24,7 @@ const MoreBlogs = () => {
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Section Header */}
         <AnimateOnView once blur delay={0.1} className="max-w-[683px]">
-          <h2 className="h2">Explore more AI insights</h2>
+          <h2 className="h2">{title}</h2>
         </AnimateOnView>
 
         {/* Articles Grid */}

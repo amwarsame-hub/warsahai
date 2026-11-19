@@ -118,6 +118,32 @@
 }
 
 @layer components {
+  /* Article text: same type scale as the rest of the site (.h4/.h5/.h6, DM Sans body). */
+  .blog-prose {
+    @apply font-sans text-foreground;
+  }
+  .blog-prose h1 {
+    @apply font-heading text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-semibold leading-[1.2] tracking-tight text-foreground mt-12 mb-6;
+  }
+  .blog-prose h2 {
+    @apply font-heading text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] font-semibold leading-[1.3] tracking-tight text-foreground mt-12 mb-4;
+  }
+  .blog-prose h3 {
+    @apply font-heading text-[20px] sm:text-[22px] md:text-[23px] lg:text-[24px] font-medium leading-[1.4] tracking-tight text-foreground mt-8 mb-3;
+  }
+  .blog-prose h4,
+  .blog-prose h5,
+  .blog-prose h6 {
+    @apply font-heading text-lg sm:text-[20px] md:text-[21px] lg:text-[22px] font-medium leading-[1.4] tracking-tight text-foreground mt-6 mb-2;
+  }
+  .blog-prose p,
+  .blog-prose li {
+    @apply font-sans text-base md:text-lg leading-[1.6] text-muted-foreground;
+  }
+  .blog-prose strong {
+    @apply font-semibold text-foreground;
+  }
+
   .glass-card {
     @apply rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl;
   }
