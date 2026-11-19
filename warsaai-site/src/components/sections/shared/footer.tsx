@@ -1,10 +1,21 @@
 import Container from "@/components/container";
 import NewsletterForm from "@/components/newsletter-form";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
+import { appConfig } from "@/utils/app-config";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const socialLinks = [
+  { label: "X", href: appConfig.social.x, icon: Twitter },
+  { label: "LinkedIn", href: appConfig.social.linkedin, icon: Linkedin },
+  { label: "YouTube", href: appConfig.social.youtube, icon: Youtube },
+  { label: "Facebook", href: appConfig.social.facebook, icon: Facebook },
+  { label: "Instagram", href: appConfig.social.instagram, icon: Instagram },
+];
 
 const pagesLinks = [
   { title: "Home", href: "/" },
+  { title: "How We Build", href: "/#how-we-build" },
   { title: "Services", href: "/features" },
   { title: "Pricing", href: "/pricing" },
   { title: "Company", href: "/company" },
@@ -52,6 +63,35 @@ const Footer = () => {
               <p className="text-muted">
                 London, <br />United Kingdom
               </p>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-white">Follow us on</p>
+              <div className="flex gap-2">
+                {socialLinks.map(({ label, href, icon: Icon }) =>
+                  href ? (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`WarsaAi on ${label}`}
+                      className="grid size-9 place-items-center rounded-lg bg-[#2a2a2a] text-white transition-colors hover:bg-[#3a3a3a]"
+                    >
+                      <Icon className="size-4" />
+                    </a>
+                  ) : (
+                    <span
+                      key={label}
+                      title={`${label} link coming soon`}
+                      aria-hidden="true"
+                      className="grid size-9 place-items-center rounded-lg bg-[#2a2a2a] text-white/40"
+                    >
+                      <Icon className="size-4" />
+                    </span>
+                  ),
+                )}
+              </div>
             </div>
           </div>
 

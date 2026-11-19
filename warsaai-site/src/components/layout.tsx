@@ -16,12 +16,24 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         // Links like /academy#curriculum land on that section; everything else starts at the top.
-        const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null
+        const id = hash ? decodeURIComponent(hash.slice(1)) : ""
+        const target = id ? document.getElementById(id) : null
         if (target) {
             target.scrollIntoView()
-        } else {
-            window.scrollTo(0, 0)
+            return
         }
+        window.scrollTo(0, 0)
+        if (!id) return
+        // Lazy-loaded sections (e.g. /#how-we-build on the home page) mount a moment later.
+        let tries = 0
+        const timer = window.setInterval(() => {
+            const el = document.getElementById(id)
+            if (el || ++tries > 30) {
+                window.clearInterval(timer)
+                el?.scrollIntoView()
+            }
+        }, 100)
+        return () => window.clearInterval(timer)
     }, [pathname, hash])
 
     return null

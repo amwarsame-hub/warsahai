@@ -16,6 +16,7 @@ const MobileApp = lazy(() => import("@/components/sections/home/mobile-app"));
 const Pillars = lazy(() => import("@/components/sections/home/pillars"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const StartBuilding = lazy(() => import("@/components/sections/home/start-building"));
+const HowWeBuild = lazy(() => import("@/components/sections/home/how-we-build"));
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -72,6 +73,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <SecurityCompliance />
+        </Suspense>
+        <Suspense fallback={null}>
+          <HowWeBuild />
         </Suspense>
         <Suspense fallback={null}>
           <Explore />

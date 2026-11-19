@@ -14,6 +14,10 @@ export const appConfig = {
     social: {
         instagram: "https://www.instagram.com/warsaa.ai/",
         youtube: "https://www.youtube.com/@warsaa.ai",
+        // Placeholders until the real profile links are confirmed; empty = shown greyed out.
+        x: "",
+        linkedin: "",
+        facebook: "",
     },
 }
 
