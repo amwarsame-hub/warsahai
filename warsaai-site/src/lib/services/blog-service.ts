@@ -1,4 +1,12 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getLocalPosts } from "@/data/local-blog-posts";
+
+/** Database posts + code-shipped posts (see src/data/local-blog-posts.ts), newest first, slugs unique. */
+const withLocalPosts = (dbPosts: BlogPost[], category?: string): BlogPost[] => {
+  const slugs = new Set(dbPosts.map((p) => p.slug));
+  const local = getLocalPosts(category).filter((p) => !slugs.has(p.slug));
+  return [...dbPosts, ...local].sort((a, b) => b.created_at.localeCompare(a.created_at));
+};
 
 export type BlogPostStatus = "draft" | "published";
 
@@ -16,6 +24,13 @@ export interface BlogPost {
   content: string | null;
   created_at: string;
   updated_at: string;
+  /** Source links shown under the article (code-shipped posts; database posts have none yet). */
+  sources?: BlogSource[];
+}
+
+export interface BlogSource {
+  title: string;
+  url: string;
 }
 
 export interface CreateBlogPostData {
@@ -61,16 +76,21 @@ export const getBlogPosts = async (
 
   if (error) {
     console.error("Error fetching blog posts:", error);
-    return [];
+    return includeDrafts ? [] : withLocalPosts([], category);
   }
 
-  return (data || []) as BlogPost[];
+  const posts = (data || []) as BlogPost[];
+  // Admin dashboard (includeDrafts) lists database posts only.
+  return includeDrafts ? posts : withLocalPosts(posts, category);
 };
 
 /**
  * Get a single published blog post by slug
  */
 export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
+  const local = getLocalPosts().find((p) => p.slug === slug);
+  if (local) return local;
+
   const { data, error } = await supabase
     .from("blog_posts")
     .select("*")
@@ -122,6 +142,7 @@ export const getCategories = async (includeDrafts = false): Promise<string[]> =>
   }
 
   const categories = data?.map((post) => post.category) || [];
+  if (!includeDrafts) categories.push(...getLocalPosts().map((p) => p.category));
   return Array.from(new Set(categories)).sort();
 };
 
@@ -138,10 +159,10 @@ export const getFeaturedPosts = async (): Promise<BlogPost[]> => {
 
   if (error) {
     console.error("Error fetching featured posts:", error);
-    return [];
+    return withLocalPosts([]).slice(0, 2);
   }
 
-  return (data || []) as BlogPost[];
+  return withLocalPosts((data || []) as BlogPost[]).slice(0, 2);
 };
 
 /**
@@ -158,10 +179,10 @@ export const getRelatedPosts = async (currentSlug: string, limit: number = 3): P
 
   if (error) {
     console.error("Error fetching related posts:", error);
-    return [];
+    return withLocalPosts([]).filter((p) => p.slug !== currentSlug).slice(0, limit);
   }
 
-  return (data || []) as BlogPost[];
+  return withLocalPosts((data || []) as BlogPost[]).filter((p) => p.slug !== currentSlug).slice(0, limit);
 };
 
 /**

@@ -7,7 +7,7 @@ import BlogBreadcrumbs from "@/components/sections/blog/blog-breadcrumbs";
 
 const BlogHero = () => {
   return (
-    <section className="relative bg-black overflow-hidden banner-top-padding pb-[200px] lg:pb-[301px]">
+    <section className="relative bg-brand-ink overflow-hidden banner-top-padding pb-[200px] lg:pb-[301px]">
       <Container className="relative z-10">
         <BlogBreadcrumbs
           className="mb-8 flex justify-center"

@@ -15,7 +15,7 @@ const BlogDetailsHero = ({ post }: BlogDetailsHeroProps) => {
   }
 
   return (
-    <section className="relative bg-black text-white banner-top-padding md:pb-24 pb-12">
+    <section className="relative bg-brand-ink text-white banner-top-padding md:pb-24 pb-12">
       <Container className="flex-1 flex flex-col justify-center">
         <BlogBreadcrumbs
           className="mb-8 max-w-[1024px]"

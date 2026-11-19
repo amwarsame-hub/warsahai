@@ -9,8 +9,11 @@ const MoreBlogs = () => {
   const { slug } = useParams();
   const { data: relatedPosts = [], isLoading } = useRelatedPosts(slug || "", 3);
 
+  // Nothing else to read yet: hide the section instead of showing an empty heading.
+  if (!isLoading && relatedPosts.length === 0) return null;
+
   return (
-    <section className="md:pt-20 xl:pt-32 pt-12 md:pb-20 xl:pb-32 pb-12" id="blog">
+    <section className="border-t border-border pt-12 md:pt-16 pb-12 md:pb-20" id="blog">
       <Container className="md:space-y-10 xl:space-y-2xl space-y-8">
         {/* Section Header */}
         <AnimateOnView once blur delay={0.1} className="max-w-[683px]">

@@ -40,10 +40,11 @@ export function BlogBody({ content }: BlogBodyProps) {
         <div className={`
           font-sans text-foreground prose prose-lg max-w-none
           
-          [&_h1]:text-3xl [&_h1]:md:text-4xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:text-foreground
-          [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-semibold [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:text-foreground
-          [&_h3]:text-xl [&_h3]:md:text-2xl [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-foreground
-          [&_h4]:text-lg [&_h4]:md:text-xl [&_h4]:font-medium [&_h4]:mt-6 [&_h4]:mb-2 [&_h4]:text-foreground
+          [&_h1]:font-heading [&_h1]:tracking-tight [&_h1]:leading-[1.2] [&_h1]:text-3xl [&_h1]:md:text-4xl [&_h1]:font-semibold [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:text-foreground
+          [&_h2]:font-heading [&_h2]:tracking-tight [&_h2]:leading-[1.2] [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-semibold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-foreground
+          [&_h3]:font-heading [&_h3]:tracking-tight [&_h3]:leading-[1.3] [&_h3]:text-xl [&_h3]:md:text-2xl [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-foreground
+          [&_h4]:font-heading [&_h4]:tracking-tight [&_h4]:text-lg [&_h4]:md:text-xl [&_h4]:font-medium [&_h4]:mt-6 [&_h4]:mb-2 [&_h4]:text-foreground
+          [&>div>*:first-child]:mt-0 [&>div>*:last-child]:mb-0
 
           [&_p]:text-base [&_p]:md:text-lg [&_p]:mb-6 [&_p]:leading-relaxed [&_p]:text-muted-foreground
           [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary/80
