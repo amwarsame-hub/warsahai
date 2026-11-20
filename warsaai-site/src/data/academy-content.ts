@@ -853,7 +853,7 @@ export const promptExchange: { text: string; category: string }[] = [
 ];
 
 export const workflowBadges: string[] = [
-  "Build Once · Run Forever",
+  "Build Once · Run Reliably",
   "Schedule & Trigger",
   "Connect Any App",
   "Cross-Department AI",
@@ -951,7 +951,7 @@ export const emailService = { intro: {
   },
   {
     "title": "Drip Sequences",
-    "text": "Multi-step outreach that triggers automatically — intro, follow-up day 3, value day 7, close day 14. All on autopilot."
+    "text": "Multi-step outreach that triggers automatically — intro, follow-up day 3, value day 7, close day 14, with fewer manual exceptions to handle."
   },
   {
     "title": "A/B Subject Testing",

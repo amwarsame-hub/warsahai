@@ -32,7 +32,7 @@ const CoreFeatures = () => {
               delay={0.2}
               className="h2 md:mb-6 mb-3"
             >
-              Intelligent Ecosystems That Work While You Sleep.
+              Intelligent Ecosystems for 24/7 Operational Continuity.
             </AnimateOnView>
 
             <AnimateOnView
@@ -43,18 +43,6 @@ const CoreFeatures = () => {
               Custom AI agents that connect your apps, automate cross-departmental workflows, and let AI carry the operational load.
             </AnimateOnView>
           </div>
-
-          <AnimateOnView
-            once
-            delay={0.4}
-          >
-            <Button asChild>
-              <Link to="/contact">
-                Book an Efficiency Audit
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-          </AnimateOnView>
         </div>
 
         <div>
@@ -73,7 +61,7 @@ const CoreFeatures = () => {
                   delay={0.3}
                 >
                   <h4 className="h4 text-white mb-3 max-w-[400px]">
-                    Build Once, Run Forever.
+                    Build Once, Run Reliably.
                   </h4>
                 </AnimateOnView>
                 <AnimateOnView
@@ -82,7 +70,7 @@ const CoreFeatures = () => {
                   blur
                 >
                   <p className="text-muted mb-8 leading-relaxed">
-                    Custom AI agents designed for set-it-and-forget-it reliability, without constant babysitting.
+                    Custom AI agents that leave your team fewer manual exceptions to handle, run as governed, monitored workflows.
                   </p>
                 </AnimateOnView>
               </StaggerContainer>

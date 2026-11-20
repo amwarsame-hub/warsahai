@@ -185,7 +185,7 @@ const Operations = () => {
       <section className="wa-ops" id="operations" ref={rootRef}>
         <div className="wa-ops__head">
           <div className="wa-eyebrow"><i />Operational efficiency</div>
-          <h2>Build Once, <span>Run Forever</span></h2>
+          <h2>Build Once, <span>Run Reliably</span></h2>
           <p>Let AI carry the operational load</p>
         </div>
 

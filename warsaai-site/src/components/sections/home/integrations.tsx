@@ -31,8 +31,10 @@ const Logo = ({ logo, scrollYProgress }: { logo: LogoItem; scrollYProgress: Moti
   const brand = getPlatform(logo.app.name).logo;
 
   return (
-    <motion.div className="absolute" style={{ left: `${logo.x}%`, top: `${logo.y}%`, opacity, scale }}>
-      <div className="flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-border bg-background py-1.5 pl-1.5 pr-3 text-xs font-semibold text-foreground shadow-sm sm:text-sm md:gap-3 md:py-2 md:pl-2 md:pr-6 md:text-lg">
+    // Centre the positioned box itself (x/y -50%), not just its contents, so long names
+    // near the right edge don't stretch the page and cause sideways scroll on phones.
+    <motion.div className="absolute" style={{ left: `${logo.x}%`, top: `${logo.y}%`, x: "-50%", y: "-50%", opacity, scale }}>
+      <div className="flex items-center gap-2 whitespace-nowrap rounded-full border border-border bg-background py-1.5 pl-1.5 pr-3 text-xs font-semibold text-foreground shadow-sm sm:text-sm md:gap-3 md:py-2 md:pl-2 md:pr-6 md:text-lg">
         <span className={`flex size-7 items-center justify-center rounded-full md:size-11 ${brand ? "bg-secondary" : "bg-primary text-primary-foreground"}`}>
           {brand ? <img src={brand} alt="" className="size-4 object-contain md:size-5" /> : <Icon className="size-4 md:size-5" />}
         </span>
@@ -64,7 +66,7 @@ const Integrations = () => {
   }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className="relative bg-card" id="integrations" style={{ height: "300vh" }}>
+    <section ref={sectionRef} className="relative bg-card overflow-x-clip" id="integrations" style={{ height: "300vh" }}>
       {/* Sticky centered text container */}
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <Container className="relative z-10">

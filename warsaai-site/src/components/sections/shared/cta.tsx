@@ -4,6 +4,7 @@ import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Container from "../../container";
+import { appConfig } from "@/utils/app-config";
 
 const CTA = () => {
 
@@ -30,12 +31,13 @@ const CTA = () => {
                     <AnimateOnView
                         once
                     >
-                        <Button asChild>
+                        <Button asChild className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky focus-visible:ring-offset-2 focus-visible:ring-offset-black">
                             <Link to="/contact">
-                                Book an Efficiency Audit
-                                <ArrowRight className="w-5 h-5" />
+                                {appConfig.cta.primary}
+                                <ArrowRight className="w-5 h-5" aria-hidden="true" />
                             </Link>
                         </Button>
+                        <p className="mx-auto mt-4 max-w-[560px] text-sm text-muted">{appConfig.cta.auditNote}</p>
                     </AnimateOnView>
                 </StaggerContainer>
             </Container>

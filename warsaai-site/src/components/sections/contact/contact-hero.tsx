@@ -2,6 +2,7 @@ import Container from "@/components/container";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { Badge } from "../../ui/badge";
+import { appConfig } from "@/utils/app-config";
 
 const ContactHero = () => {
     return (
@@ -14,7 +15,7 @@ const ContactHero = () => {
                     </AnimateOnView>
                     <AnimateOnView blur delay={0.1}>
                         <Badge variant="color">
-                            <span>Work with <span className="text-white">Ahmed Warsame</span>, AI Specialist.</span>
+                            <span>Built by <span className="text-white">{appConfig.name}</span></span>
                         </Badge>
                     </AnimateOnView>
                 </StaggerContainer>

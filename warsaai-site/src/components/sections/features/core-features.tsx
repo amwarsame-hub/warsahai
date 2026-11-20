@@ -14,8 +14,8 @@ import { Link } from "react-router-dom";
 const features = [
   {
     id: "build-once",
-    title: "Build Once, Run Forever",
-    description: "Custom AI agents are designed for set-it-and-forget-it reliability. Deploy once; the system runs, adapts and delivers results 24/7.",
+    title: "Build Once, Run Reliably",
+    description: "Custom AI agents that leave your team fewer manual exceptions to handle. Deploy once; governed, monitored workflows deliver 24/7 operational continuity.",
     visual: <BuildOnceArt className="h-48" />,
   },
   {

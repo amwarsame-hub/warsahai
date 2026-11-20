@@ -17,10 +17,11 @@ const Pillars = lazy(() => import("@/components/sections/home/pillars"));
 const SecurityCompliance = lazy(() => import("@/components/sections/home/security-compliance"));
 const StartBuilding = lazy(() => import("@/components/sections/home/start-building"));
 const HowWeBuild = lazy(() => import("@/components/sections/home/how-we-build"));
+const Rollout = lazy(() => import("@/components/sections/home/rollout"));
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const metaTitle = "WarsaAi | Intelligent Ecosystems That Work While You Sleep";
+  const metaTitle = "WarsaAi | Intelligent Ecosystems for 24/7 Operational Continuity";
   const metaDescription = "WarsaAi builds custom AI agents and integrations that connect your apps, automate cross-departmental workflows, and let AI carry the operational load.";
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,6 +74,9 @@ const Home = () => {
         </Suspense>
         <Suspense fallback={null}>
           <SecurityCompliance />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Rollout />
         </Suspense>
         <Suspense fallback={null}>
           <HowWeBuild />

@@ -12,14 +12,14 @@ import { Link } from "react-router-dom";
 
 const Workflows = () => {
   const description =
-    "Design once, run forever. Connect every department to Claude AI — schedule automations, trigger actions, and let AI handle the repetitive work across your organisation.";
+    "Design once, run reliably. Connect every department to Claude AI — schedule automations, trigger actions, and let AI handle the repetitive work across your organisation.";
 
   return (
     <>
       <SEO title={`Reusable AI Workflows | ${appConfig.name}`} description={description} canonicalUrl="/workflows" />
       <Layout>
         <PageHero
-          badges={["Claude AI · Workflow Automation", "Build once, run forever"]}
+          badges={["Claude AI · Workflow Automation", "Build once, run reliably"]}
           title="Build Reusable Workflows"
           subtitle={description}
         >

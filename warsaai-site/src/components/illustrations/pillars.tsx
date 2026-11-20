@@ -16,7 +16,7 @@ const base = (className?: string) => ({
 const dashed = { strokeWidth: 1.5, strokeDasharray: "4 2", opacity: 0.7 };
 const label = { fontSize: 7, fontWeight: 700, textAnchor: "middle" as const, fontFamily: "inherit" };
 
-/** Two meshed gears: build once, run forever. */
+/** Two meshed gears: build once, run reliably. */
 export const BuildOnceArt = ({ className }: ArtProps) => (
   <svg {...base(className)}>
     <circle cx="45" cy="50" r="22" className="stroke-primary" strokeWidth="3" opacity="0.2" />

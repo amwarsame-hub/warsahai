@@ -13,7 +13,7 @@ const FeaturesHero = () => {
         {/* Trust badges */}
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-6 mb-8">
           <AnimateOnView blur>
-            <Badge variant="color">Intelligent ecosystems that work while you sleep.</Badge>
+            <Badge variant="color">AI Strategy &amp; Implementation</Badge>
           </AnimateOnView>
           <AnimateOnView blur delay={0.1}>
             <Badge variant="color">
@@ -25,7 +25,7 @@ const FeaturesHero = () => {
         {/* Main headline */}
         <AnimateOnView blur className="text-center max-w-3xl mx-auto mb-10" delay={0.2}>
           <h1 className="h1 text-white">
-            Intelligent Ecosystems That Work While You Sleep
+            Intelligent Ecosystems for 24/7 Operational Continuity
           </h1>
         </AnimateOnView>
 

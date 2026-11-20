@@ -14,7 +14,7 @@ const MobileApp = () => {
       description: "Track automated workflows, review agent output, and check reports as they happen.",
     },
     {
-      title: "Run Forever",
+      title: "Run Reliably",
       description: "Latency tuning, accuracy scoring, and scale architecture as your requirements evolve.",
     },
   ];

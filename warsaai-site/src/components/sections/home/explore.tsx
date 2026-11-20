@@ -24,7 +24,7 @@ const destinations: { href: string; icon: LucideIcon; title: string; text: strin
     href: "/workflows",
     icon: Workflow,
     title: "Reusable Workflows",
-    text: "Design once, run forever. See what each department can put on autopilot.",
+    text: "Design once, run reliably. See where each department can have fewer manual exceptions to handle.",
     meta: "7 departments",
   },
   {

@@ -45,7 +45,7 @@ const WorkflowHub = () => {
         <SectionHeading
           eyebrow="AI Workflow Hub"
           title="One hub, every department"
-          description={`${workflowDepartments.length} departments and ${totalFlows} ready-made workflows. Pick a department to see what runs on autopilot and which apps it connects.`}
+          description={`${workflowDepartments.length} departments and ${totalFlows} ready-made workflows. Pick a department to see which manual exceptions it removes and which apps it connects.`}
         />
 
         <ul className="flex flex-wrap gap-x-6 gap-y-2">

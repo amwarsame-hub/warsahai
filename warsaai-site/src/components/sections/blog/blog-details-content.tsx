@@ -93,8 +93,8 @@ const BlogDetailsContent = ({ post }: BlogDetailsContentProps) => {
             </div>
             <Button asChild className="shrink-0 bg-white text-brand-ink hover:bg-white/90">
               <Link to="/contact">
-                Book a free call
-                <ArrowRight className="h-5 w-5" />
+                Book an Efficiency Audit
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>
           </div>

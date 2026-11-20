@@ -1,13 +1,10 @@
 import Container from "@/components/container";
 import { IntegrationsBoard, WorkflowStatusBoard, WorkflowTrendChart } from "@/components/illustrations/dashboards";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const BusinessAccount = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -26,8 +23,8 @@ const BusinessAccount = () => {
       icon: "/images/icons/growth-arrow.svg",
       title: "Custom Implementation",
       badge: "Implementation",
-      heading: "Build once, run forever",
-      description: "Custom AI agents and integrations designed for set-it-and-forget-it reliability.",
+      heading: "Build once, run reliably",
+      description: "Custom AI agents and integrations that leave your team fewer manual exceptions to handle.",
       visual: <WorkflowStatusBoard className="w-full max-w-[460px]" />,
       link: "/contact",
     },
@@ -119,18 +116,6 @@ const BusinessAccount = () => {
                   <p className="text-lg md:mb-10 mb-4">
                     {tabs[activeTab].description}
                   </p>
-                </AnimateOnView>
-
-                <AnimateOnView
-                  once
-                  delay={0.6}
-                >
-                  <Button asChild>
-                    <Link to={tabs[activeTab].link}>
-                      Book an Efficiency Audit
-                      <ArrowRight className="w-5 h-5" />
-                    </Link>
-                  </Button>
                 </AnimateOnView>
               </StaggerContainer>
             </AnimatePresence>

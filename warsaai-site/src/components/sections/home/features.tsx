@@ -50,7 +50,7 @@ const items: (FeatureItem | LottieItem)[] = [
     type: "feature",
     icon: "/images/icons/globe.svg",
     title: "Social Media Campaign & Automation",
-    description: "Content, scheduling, and analytics running on autopilot."
+    description: "Content, scheduling and analytics with fewer manual exceptions to handle."
   },
 ];
 
@@ -90,7 +90,13 @@ const Features = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement> | null }
 
       const heroCenterX = heroRect.left + heroRect.width / 2;
 
-      const heroCenterY = heroRect.top + heroRect.height / 2 + window.scrollY + 250;
+      // From md up the previews sit side by side: start the logo in the gap between them, so it
+      // stays clear of the hero copy whatever its length. Phones keep the original placement.
+      const anchor = window.innerWidth >= 768 ? heroRef.current.querySelector<HTMLElement>("[data-logo-anchor]") : null;
+      const anchorRect = anchor?.getBoundingClientRect();
+      const heroCenterY = anchorRect
+        ? anchorRect.top + anchorRect.height / 2 + window.scrollY
+        : heroRect.top + heroRect.height / 2 + window.scrollY + 250;
 
       const containerCenterX = containerRect.left + containerRect.width / 2;
       const containerCenterY = containerRect.top + containerRect.height / 2 + window.scrollY;
@@ -126,7 +132,7 @@ const Features = ({ heroRef }: { heroRef?: React.RefObject<HTMLElement> | null }
         {/* Section header */}
         <AnimateOnView>
           <h2 className="h4 text-center max-w-[389px] mx-auto mb-4">
-            Intelligent ecosystems <span className="text-muted-foreground">that work while you sleep</span>
+            Intelligent ecosystems <span className="text-muted-foreground">for 24/7 operational continuity</span>
           </h2>
         </AnimateOnView>
 

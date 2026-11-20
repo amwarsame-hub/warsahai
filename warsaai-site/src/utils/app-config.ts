@@ -11,6 +11,14 @@ export const appConfig = {
         location: "London, UK",
         handle: "@warsaa_ai",
     },
+    /** Calls to action. One primary action site-wide; the quick brief is the only secondary. */
+    cta: {
+        primary: "Book an Efficiency Audit",
+        secondary: "Send a quick brief",
+        briefHref: "/#start-building",
+        /** Shown under the primary button in the hero and the closing banner. */
+        auditNote: "Free 30-minute conversation by video, phone or in writing. No obligation. You receive a summary of your workflows, the tools to connect and an estimated return on investment.",
+    },
     social: {
         instagram: "https://www.instagram.com/warsaa.ai/",
         youtube: "https://www.youtube.com/@warsaa.ai",

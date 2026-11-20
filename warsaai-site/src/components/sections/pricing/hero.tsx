@@ -10,7 +10,7 @@ const PricingHero = () => {
         {/* Trust badges */}
         <StaggerContainer className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-4 xl:gap-6 mb-4">
           <AnimateOnView once blur>
-            <Badge variant="color">Intelligent ecosystems that work while you sleep.</Badge>
+            <Badge variant="color">Intelligent ecosystems for 24/7 operational continuity.</Badge>
           </AnimateOnView>
           <AnimateOnView once blur delay={0.1}>
             <Badge variant="color">

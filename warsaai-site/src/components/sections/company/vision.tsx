@@ -60,10 +60,10 @@ const Vision = () => {
                     <AnimateOnView className="space-y-8 max-w-[715px] w-full">
                         <div className="space-y-4">
                             <h3 className="h5">
-                                Build Once, Run Forever
+                                Build Once, Run Reliably
                             </h3>
                             <p>
-                                Business growth should not mean more manual work. WarsaAi builds custom AI agents designed to run, adapt and deliver results without constant babysitting. Set-it-and-forget-it reliability is the design goal.
+                                Business growth should not mean more manual work. WarsaAi builds custom AI agents that run, adapt and deliver results as governed, monitored workflows. Fewer manual exceptions to handle is the design goal.
                             </p>
                         </div>
 

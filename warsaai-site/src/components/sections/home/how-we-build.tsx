@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { Link } from "react-router-dom";
+import { appConfig } from "@/utils/app-config";
 
 /* ------------------------------------------------------------------ */
 /* Motion helpers                                                      */
@@ -136,7 +137,7 @@ const BriefDemo = () => {
             transition={{ duration: 1.4, repeat: Infinity }}
             className="inline-flex items-center gap-1.5 rounded-full bg-brand-ink px-4 py-2 text-xs font-medium text-white"
           >
-            Send brief <Send className="size-3.5" />
+            Send a quick brief <Send className="size-3.5" />
           </motion.span>
         </div>
       </Frame>
@@ -626,18 +627,18 @@ const HowWeBuild = () => {
         <AnimateOnView once className="text-center">
           <p className="h5 mb-2">See what WarsaAi could build for your team</p>
           <p className="mx-auto mb-6 max-w-[620px] text-card-foreground">
-            Book a free call. We'll walk through your workflow, the tools it needs to connect to, your governance requirements
-            and how you'd roll it out.
+            Book a free 30-minute Efficiency Audit. We'll walk through your workflow, the tools it needs to connect to, your
+            governance requirements and how you'd roll it out.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild>
+            <Button asChild className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               <Link to="/contact">
-                Book a Demo
-                <ArrowRight className="h-5 w-5" />
+                {appConfig.cta.primary}
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>
-            <Button asChild variant="outline">
-              <Link to="/features">Our Services</Link>
+            <Button asChild variant="outline" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+              <Link to={appConfig.cta.briefHref}>{appConfig.cta.secondary}</Link>
             </Button>
           </div>
         </AnimateOnView>

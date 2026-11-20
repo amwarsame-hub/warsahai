@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import Container from "../../container";
 import { Badge } from "../../ui/badge";
 
+/* Visible keyboard focus (WCAG 2.1 AA). */
+const focusRing = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+
 const Hero = ({ heroRef }: {
   heroRef?: React.RefObject<HTMLElement> | null
 }) => {
@@ -30,36 +33,44 @@ const Hero = ({ heroRef }: {
 
         <AnimateOnView blur className="text-center max-w-3xl mx-auto md:mb-6 mb-4" delay={0.2}>
           <h1 className="h1 text-white">
-            Intelligent Ecosystems That Work While You Sleep
+            Intelligent Ecosystems for 24/7 Operational Continuity
           </h1>
         </AnimateOnView>
 
         <AnimateOnView className="text-center max-w-2xl mx-auto lg:mb-10 md:mb-8 mb-6" delay={0.3}>
           <p className="text-lg text-muted">
-            We design and build custom AI agents that connect the tools you already use, from CRM to finance to support, so routine work runs itself.
+            We design and build custom AI agents that connect the tools you already use, from CRM to finance to support, so routine work runs as governed, monitored workflows with a measurable return on investment (ROI).
           </p>
         </AnimateOnView>
 
-        <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <StaggerContainer className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <AnimateOnView delay={0.4}>
-            <Button asChild>
+            <Button asChild className={focusRing}>
               <Link to="/contact">
-                Book an Efficiency Audit
-                <ArrowRight className="w-5 h-5 ml-1" />
+                {appConfig.cta.primary}
+                <ArrowRight className="w-5 h-5 ml-1" aria-hidden="true" />
               </Link>
             </Button>
           </AnimateOnView>
           <AnimateOnView delay={0.5}>
-            <Button variant="outline" asChild className="border-white/25 text-white hover:bg-white/10">
-              <Link to="/pricing">
-                See Services &amp; Pricing
-              </Link>
+            <Button variant="outline" asChild className={`border-white/25 text-white hover:bg-white/10 ${focusRing}`}>
+              <Link to={appConfig.cta.briefHref}>{appConfig.cta.secondary}</Link>
             </Button>
           </AnimateOnView>
         </StaggerContainer>
 
+        <AnimateOnView delay={0.55} className="mx-auto mt-4 mb-10 max-w-[560px] text-center">
+          <p className="text-sm text-muted">{appConfig.cta.auditNote}</p>
+          <Link
+            to="/pricing"
+            className={`mt-3 inline-block text-sm font-medium text-white underline underline-offset-4 hover:text-brand-sky ${focusRing}`}
+          >
+            See Services &amp; Pricing
+          </Link>
+        </AnimateOnView>
+
         {/* Product previews */}
-        <div className="relative flex flex-col items-center justify-between gap-6 md:flex-row md:items-start xl:gap-10 mt-[50px] xl:mt-24 max-w-[904px] mx-auto">
+        <div data-logo-anchor className="relative flex flex-col items-center justify-between gap-6 md:flex-row md:items-start xl:gap-10 mt-8 xl:mt-10 max-w-[904px] mx-auto">
           <AnimateOnView delay={0.6} className={`relative z-10 w-full max-w-[330px] ${isMobile ? "" : "animate-float"}`}>
             <IntegrationsBoard limit={6} />
           </AnimateOnView>

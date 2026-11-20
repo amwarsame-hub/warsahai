@@ -1,18 +1,15 @@
 import Container from "@/components/container";
 import { AuditTrailArt, BuildOnceArt, ConnectAnyAppArt, CrossDepartmentArt } from "@/components/illustrations/pillars";
 import SectionHeading from "@/components/sections/shared/section-heading";
-import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const pillars = [
   {
     Art: BuildOnceArt,
-    tag: "Set & forget",
-    title: "Build Once, Run Forever",
+    tag: "Fewer exceptions",
+    title: "Build Once, Run Reliably",
     kicker: "Sustainable automation",
-    text: "Custom AI agents designed with “set-it-and-forget-it” reliability. Deploy once — your system runs, adapts, and delivers results 24/7 without manual intervention.",
+    text: "Custom AI agents that leave your team fewer manual exceptions to handle. Deploy once, and governed, monitored workflows deliver 24/7 operational continuity.",
   },
   {
     Art: CrossDepartmentArt,
@@ -45,14 +42,6 @@ const Pillars = () => {
           eyebrow="How it works"
           title="The core pillars"
           description="Stop trading time for money. We build the connective tissue — custom AI agents that bridge every department and carry the operational load."
-          action={
-            <Button asChild>
-              <Link to="/contact">
-                Book an Efficiency Audit
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-          }
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

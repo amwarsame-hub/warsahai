@@ -1,10 +1,7 @@
 import Container from "@/components/container";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const SecurityCompliance = () => {
   const features = [
@@ -50,18 +47,6 @@ const SecurityCompliance = () => {
               How WarsaAi Works
             </AnimateOnView>
           </div>
-
-          <AnimateOnView
-            once
-            delay={0.3}
-          >
-            <Button asChild>
-              <Link to="/contact">
-                Book an Efficiency Audit
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-          </AnimateOnView>
         </div>
 
         {/* Feature Cards */}
@@ -96,12 +81,6 @@ const SecurityCompliance = () => {
           <p className="text-foreground text-lg text-center md:text-left max-w-[400px] md:max-w-full">
             ⚡️ Stop trading time for money. Let AI carry the operational load.
           </p>
-          <Button className="bg-foreground text-background hover:bg-foreground/90" asChild>
-            <Link to="/contact">
-              Book an Efficiency Audit
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
         </AnimateOnView>
       </Container>
     </section>

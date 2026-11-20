@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 const coreValues = [
     {
         icon: "/images/icons/wallet.svg",
-        title: "Build Once, Run Forever",
-        description: "Custom AI agents designed for set-it-and-forget-it reliability, without constant babysitting.",
+        title: "Build Once, Run Reliably",
+        description: "Custom AI agents that leave your team fewer manual exceptions to handle, run as governed, monitored workflows.",
         iconColor: "text-primary"
     },
     {

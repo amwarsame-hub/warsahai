@@ -24,8 +24,8 @@ const StartBuilding = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     window.location.href = mailto(
-      `${appConfig.name} — Start Building`,
-      idea.trim() || "Hi Ahmed, I want to start building with AI.",
+      `${appConfig.name} — Quick brief`,
+      idea.trim() || "Hi Ahmed, here is a quick brief of what I'd like to build.",
     );
   };
 
@@ -69,9 +69,9 @@ const StartBuilding = () => {
                     </button>
                   ))}
                 </div>
-                <Button type="submit">
-                  Start Building
-                  <ArrowRight className="w-5 h-5" />
+                <Button type="submit" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sky focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                  {appConfig.cta.secondary}
+                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </div>
             </form>

@@ -26,7 +26,7 @@ const CompanyHero = () => {
 
                 <AnimateOnView blur className="text-center max-w-3xl mx-auto lg:mb-10 md:mb-8 mb-4" delay={0.2}>
                     <h1 className="h1 text-white">
-                        Intelligent Ecosystems That Work While You Sleep
+                        Intelligent Ecosystems for 24/7 Operational Continuity
                     </h1>
                 </AnimateOnView>
 
