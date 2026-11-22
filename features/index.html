@@ -37,6 +37,22 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+
+    <!-- WarsaAi AI agent chat widget (Botpress) -->
+    <link rel="stylesheet" href="https://vdk-viber-runtime-prod.bot.botpress.host/edge/webchat.css" />
+    <script src="https://vdk-viber-runtime-prod.bot.botpress.host/edge/webchat.js"></script>
+    <script>
+      fetch("https://vdk-viber-runtime-prod.bot.botpress.host/edge/bots/152a9d7a-b071-47ba-aec1-034a8d0fc33b/config")
+        .then((res) => res.json())
+        .then(({ webchat }) =>
+          VdkEdgeWebchat.mount({
+            ...webchat,
+            mode: "bubble",
+            baseUrl: "https://vdk-viber-runtime-prod.bot.botpress.host",
+            botId: "152a9d7a-b071-47ba-aec1-034a8d0fc33b",
+          })
+        );
+    </script>
   </body>
 </html>
