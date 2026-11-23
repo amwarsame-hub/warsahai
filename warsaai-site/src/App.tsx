@@ -11,6 +11,7 @@ import Blog from "./pages/blog";
 import BlogDetails from "./pages/blog/[slug]";
 import Company from "./pages/company";
 import Contact from "./pages/contact";
+import FaqPage from "./pages/faq";
 import ProfileSettings from "./pages/dashboard/profile";
 import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
@@ -60,6 +61,7 @@ const App = () => (
               <Route path="/pricing/enterprise" element={<EnterprisePlan />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetails />} />
+              <Route path="/faq" element={<FaqPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/terms-&-condition" element={<TermsAndConditionPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

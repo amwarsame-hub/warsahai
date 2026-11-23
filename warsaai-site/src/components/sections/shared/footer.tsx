@@ -2,7 +2,7 @@ import Container from "@/components/container";
 import NewsletterForm from "@/components/newsletter-form";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { appConfig } from "@/utils/app-config";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const socialLinks = [
@@ -13,24 +13,83 @@ const socialLinks = [
   { label: "Instagram", href: appConfig.social.instagram, icon: Instagram },
 ];
 
-const pagesLinks = [
-  { title: "Home", href: "/" },
-  { title: "How We Build", href: "/#how-we-build" },
-  { title: "Services", href: "/features" },
-  { title: "Pricing", href: "/pricing" },
-  { title: "Company", href: "/company" },
-  { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
+type FooterLink = { title: string; href?: string; external?: boolean; badge?: string };
+type FooterGroup = { heading: string; links: FooterLink[]; more?: FooterLink };
+
+const linkGroups: FooterGroup[] = [
+  {
+    heading: "Product",
+    links: [
+      { title: "Services", href: "/features" },
+      { title: "How We Build", href: "/#how-we-build" },
+      { title: "Pricing", href: "/pricing" },
+      { title: "Book an Efficiency Audit", href: "/contact" },
+    ],
+    more: { title: "Explore more", href: "/#explore" },
+  },
+  {
+    heading: "Training",
+    links: [
+      { title: "Curriculum", href: "/academy#curriculum" },
+      { title: "Saturday Sessions", href: "/academy#sessions" },
+      { title: "In-House Training", href: "/training" },
+    ],
+  },
+  {
+    heading: "Automation",
+    links: [
+      { title: "Reusable Workflows", href: "/workflows" },
+      { title: "Prompt Library", href: "/prompts" },
+      { title: "Integrations", href: "/#integrations" },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { title: "Blog", href: "/blog" },
+      { title: "FAQ", href: "/faq" },
+      { title: "Academy", href: "/academy" },
+      // Placeholder until the community space launches.
+      { title: "Community", href: "/coming-soon", badge: "Coming soon" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { title: "About us", href: "/company" },
+      { title: "Security", href: "/security" },
+      { title: "Privacy Policy", href: "/privacy-policy" },
+      { title: "Terms & Conditions", href: "/terms-&-condition" },
+    ],
+  },
+  {
+    heading: "Contacts",
+    links: [
+      { title: "Contact us", href: "/contact" },
+      { title: appConfig.contact.email, href: `mailto:${appConfig.contact.email}`, external: true },
+      { title: appConfig.contact.phone, href: `tel:${appConfig.contact.phone.replace(/\s+/g, "")}`, external: true },
+      { title: "London, UK" },
+    ],
+  },
 ];
 
-const learnLinks = [
-  { title: "Academy", href: "/academy" },
-  { title: "Curriculum", href: "/academy#curriculum" },
-  { title: "Saturday Sessions", href: "/academy#sessions" },
-  { title: "Prompt Library", href: "/prompts" },
-  { title: "Reusable Workflows", href: "/workflows" },
-  { title: "In-House Training", href: "/training" },
-];
+const linkClass = "text-muted hover:text-white transition-colors [overflow-wrap:anywhere]";
+
+const FooterItem = ({ link }: { link: FooterLink }) => {
+  const label = (
+    <>
+      {link.title}
+      {link.badge && (
+        <span className="ml-1.5 inline-block rounded-full bg-primary/20 px-2 py-px align-[2px] text-[11px] font-medium text-primary">
+          {link.badge}
+        </span>
+      )}
+    </>
+  );
+  if (!link.href) return <span className="text-muted">{label}</span>;
+  if (link.external) return <a href={link.href} className={linkClass}>{label}</a>;
+  return <Link to={link.href} className={linkClass}>{label}</Link>;
+};
 
 const Footer = () => {
 
@@ -42,11 +101,8 @@ const Footer = () => {
       </div>
 
       <Container className="relative z-20">
-        <div className="flex flex-col md:flex-row justify-between gap-10 mb-12">
-          <div
-            className="space-y-[60px] max-w-[310px]"
-          >
-
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16 mb-12">
+          <div className="space-y-12 max-w-[310px] shrink-0">
             <div>
               <Link to="/">
                 <img className="mb-6 h-16 w-auto" src="/images/common/logo.png" alt="WarsaAi" />
@@ -95,71 +151,63 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-[537px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Column 2: Pages */}
-            <AnimateOnView
-              once
-              delay={0.1}
-            >
-              <h3 className="text-lg font-semibold mb-6">Pages</h3>
-              <ul className="space-y-3">
-                {pagesLinks.map((link, index) => (
-                  <li key={index}>
-                    <Link to={link.href} className="text-muted hover:text-white transition-colors">
-                      {link.title}
+          {/* Grouped link columns */}
+          <AnimateOnView once delay={0.1} className="flex-1 lg:max-w-[860px]">
+            <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
+              {linkGroups.map((group) => (
+                <div key={group.heading} className="min-w-0">
+                  <h3 className="text-lg font-bold text-white mb-5">{group.heading}</h3>
+                  <ul className="space-y-2.5">
+                    {group.links.map((link) => (
+                      <li key={link.title}>
+                        <FooterItem link={link} />
+                      </li>
+                    ))}
+                  </ul>
+                  {group.more?.href && (
+                    <Link
+                      to={group.more.href}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-white transition-colors"
+                    >
+                      {group.more.title} <ArrowRight className="size-3.5" />
                     </Link>
-                  </li>
-                ))}
-              </ul>
-            </AnimateOnView>
-
-            {/* Column 3: Utility & Newsletter */}
-            <AnimateOnView
-              once
-              delay={0.2}
-              className="space-y-8 lg:col-span-2"
-            >
-              {/* Utility Links */}
-              <div>
-                <h3 className="text-lg font-semibold mb-6">Learn</h3>
-                <ul className="space-y-3">
-                  {learnLinks.map((link, index) => (
-                    <li key={index}>
-                      <Link to={link.href} className="text-muted hover:text-white">
-                        {link.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Newsletter */}
-              <div>
-                <h3 className="text-lg font-semibold mb-2">
-                  Stay Updated with WarsaAi
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Get the latest insights on AI strategy and implementation.
-                </p>
-                <NewsletterForm
-                  buttonVariant="secondary"
-                  buttonClassName="bg-white text-black hover:bg-white/90 px-4 h-10"
-                  inputClassName="bg-foreground"
-                  formClassName="flex"
-                  gap="gap-1"
-                />
-              </div>
-            </AnimateOnView>
-
-          </div>
-
+                  )}
+                </div>
+              ))}
+            </nav>
+          </AnimateOnView>
         </div>
+
+        {/* Newsletter strip */}
+        <AnimateOnView
+          once
+          delay={0.2}
+          className="border-t border-[#2a2a2a] py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+        >
+          <div>
+            <h3 className="text-lg font-semibold mb-1">
+              Stay Updated with WarsaAi
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Get the latest insights on AI strategy and implementation.
+            </p>
+          </div>
+          <div className="w-full md:max-w-[380px]">
+            <NewsletterForm
+              buttonVariant="secondary"
+              buttonClassName="bg-white text-black hover:bg-white/90 px-4 h-10"
+              inputClassName="bg-foreground"
+              formClassName="flex"
+              gap="gap-1"
+            />
+          </div>
+        </AnimateOnView>
 
         {/* Bottom Bar: Copyright and Legal Links */}
         <AnimateOnView
           once
           delay={0.3}
-          className="border-t border-[#2a2a2a] pt-8 mt-8"
+          className="border-t border-[#2a2a2a] pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
@@ -202,4 +250,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

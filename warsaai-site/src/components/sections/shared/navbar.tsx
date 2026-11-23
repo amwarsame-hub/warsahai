@@ -26,6 +26,7 @@ const pages = [
   { name: "Pricing", href: "/pricing", desktop: true },
   { name: "Company", href: "/company", desktop: true },
   { name: "Blog", href: "/blog", desktop: false },
+  { name: "FAQ", href: "/faq", desktop: false },
   { name: "Contact", href: "/contact", desktop: false },
 ]
 
