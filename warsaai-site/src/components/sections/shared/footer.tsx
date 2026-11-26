@@ -5,10 +5,18 @@ import { appConfig } from "@/utils/app-config";
 import { ArrowRight, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
+/** Lucide has no TikTok glyph, so this mirrors its icon props (size/className via currentColor). */
+const TikTok = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M16.6 5.82a4.28 4.28 0 0 1-3.03-1.26A4.3 4.3 0 0 1 12.3 1.5h-3.1v13.9a2.6 2.6 0 1 1-1.84-2.49V9.6a5.9 5.9 0 1 0 5.14 5.83V9.08a7.3 7.3 0 0 0 4.1 1.26z" />
+  </svg>
+);
+
 const socialLinks = [
   { label: "X", href: appConfig.social.x, icon: Twitter },
   { label: "LinkedIn", href: appConfig.social.linkedin, icon: Linkedin },
   { label: "YouTube", href: appConfig.social.youtube, icon: Youtube },
+  { label: "TikTok", href: appConfig.social.tiktok, icon: TikTok },
   { label: "Facebook", href: appConfig.social.facebook, icon: Facebook },
   { label: "Instagram", href: appConfig.social.instagram, icon: Instagram },
 ];
