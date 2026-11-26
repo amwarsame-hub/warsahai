@@ -23,10 +23,9 @@ export const appConfig = {
         instagram: "https://www.instagram.com/warsaa.ai/",
         youtube: "https://www.youtube.com/channel/UCCJi9JMH5k1wzy6HKEpmcJw",
         x: "https://x.com/warsaai",
-        linkedin: "https://www.linkedin.com/in/warsaai-warsaai-5684a2452",
+        linkedin: "https://www.linkedin.com/in/warsaai-ai-5684a2452/",
         tiktok: "https://www.tiktok.com/@warsaai?lang=en-GB",
-        // Placeholder until a real profile link is confirmed; empty = shown greyed out.
-        facebook: "",
+        facebook: "https://www.facebook.com/media/set/?set=a.122105358711556201&type=3",
     },
 }
 
